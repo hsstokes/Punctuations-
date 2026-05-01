@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Secret Lives of Punctuation: Human-AI Collaborative Exploration</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12px;
+            color: #2c3e50;
+            background-image: 
+                linear-gradient(#ccc 1px, transparent 1px),
+                linear-gradient(90deg, #ccc 1px, transparent 1px);
+            background-color: #f9f2e2;
+            background-size: 20px 20px;
+            background-blend-mode: multiply;
+            padding: 20px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .page-wrapper {
+            max-width: 900px;
+            width: 95%;
+            margin: 10px auto;
+            border: 2px dashed #3498db;
+            border-radius: 35px;
+            padding: 10px;
+            background-color: #f9f2e2;
+            overflow: hidden;
+        }
+
+        .page-container {
+            max-width: 880px;
+            width: 100%;
+            margin: 0 auto;
+            border: 2px solid #2980b9;
+            border-radius: 30px;
+            padding: 20px;
+            background-color: #f9f2e2;
+            position: relative;
+            box-shadow: 0 0 0 8px #f9f2e2, 0 0 0 10px #3498db;
+            overflow: hidden;
+        }
+
+        .page-container:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-width: 0 20px 20px 0;
+            border-style: solid;
+            border-color: #f5e9c9 #fff;
+            box-shadow: -2px 2px 3px rgba(0,0,0,0.1);
+            border-radius: 0 0 0 5px;
+        }
+
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            text-align: center;
+            border: 2px dotted #2980b9;
+            border-radius: 20px;
+            background-color: #f9f2e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 12px;
+        }
+
+        h2 {
+            font-size: 1.4em;
+            text-align: center;
+            border: 2px dotted #2980b9;
+            border-radius: 20px;
+            background-color: #f9f2e2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 8px;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            text-align: center;
+            border: 2px dotted #2980b9;
+            border-radius: 20px;
+            background-color: #f9f2e2;
+            padding: 6px;
+        }
+
+        h4 { font-size: 1em; margin: 0 0 10px 0; }
+
+        p {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: justify;
+            font-size: 14px;
+            color: #2c3e50;
+            background-color: #f9f2e2;
+            border: 2px dotted #2980b9;
+            border-radius: 10px;
+            padding: 7px;
+            margin: 0 0 15px 0;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* HERO */
+        .hero-section { margin-bottom: 30px; }
+
+        .hero-title-bar {
+            text-align: center;
+            padding: 35px 25px;
+            background-color: #f5e9c9;
+            border: 2px dotted #2980b9;
+            border-radius: 20px;
+            margin-bottom: 25px;
+        }
+
+        .hero-title {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0 0 12px 0;
+            color: #2c3e50;
+            padding-bottom: 12px;
+            border-bottom: 2px dashed #3498db;
+            display: inline-block;
+            border: none;
+            background: none;
+            box-shadow: none;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin: 0;
+            letter-spacing: 0.05em;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        /* HERO GALLERY */
+        .hero-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .hero-gallery-item {
+            position: relative;
+            overflow: hidden;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            background-color: #f5e9c9;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 1;
+        }
+
+        .hero-gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .hero-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 13px;
+        }
+
+        .hero-gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(44, 62, 80, 0.9));
+            color: #f9f2e2;
+            padding: 25px 8px 8px;
+            font-size: 0.85em;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 0 0 13px 13px;
+        }
+
+        .hero-gallery-symbol {
+            font-size: 1.8em;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .hero-gallery { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .hero-statement {
+            background-color: #f5e9c9;
+            border: 2px dashed #3498db;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hero-statement p {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.1em;
+            font-style: italic;
+            color: #2c3e50;
+        }
+
+        /* NAVIGATION */
+        .nav-section {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 20px 0;
+            padding: 15px 10px;
+            background-color: #f9f2e2;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-button {
+            background-color: #f9f2e2;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+            padding: 6px 12px;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 11px;
+            transition: all 0.3s ease;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .nav-button:hover {
+            background-color: #f5e9c9;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .nav-button.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+
+        /* SECTIONS */
+        .section-content {
+            background-color: #f9f2e2;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            background-color: #f5e9c9;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .introduction {
+            background-color: #f5e9c9;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .introduction p {
+            border: none;
+            background: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .introduction p:last-child { margin-bottom: 0; }
+
+        /* HIGHLIGHT BOX */
+        .highlight-box {
+            background-color: #f9f2e2;
+            border: 2px dashed #3498db;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .highlight-box h4 {
+            margin: 0 0 10px 0;
+            border-bottom: 2px dashed #3498db;
+            padding-bottom: 8px;
+            font-style: normal;
+        }
+
+        .highlight-box p {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* WORKFLOW */
+        .workflow-box {
+            background-color: #f9f2e2;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .workflow-header {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            border-radius: 13px 13px 0 0;
+        }
+
+        .workflow-header h4 { margin: 0; color: white; }
+
+        .workflow-steps {
+            padding: 15px;
+            background-image:
+                linear-gradient(#ccc 1px, transparent 1px),
+                linear-gradient(90deg, #ccc 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 5px 10px;
+            background-color: #f9f2e2;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 2px dotted #2980b9;
+            border-radius: 10px;
+        }
+
+        .step:last-child { margin-bottom: 0; }
+
+        .step-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            font-weight: bold;
+            color: #3498db;
+            font-size: 1.1em;
+        }
+
+        .step-content {
+            width: 100%;
+            padding-left: 38px;
+            margin-top: 8px;
+        }
+
+        .step-content p {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0 0 8px 0;
+        }
+
+        /* CHARACTER CARDS */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .character-card {
+            background-color: #f5e9c9;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .character-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        .character-symbol {
+            font-size: 2.5em;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .character-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+
+        .character-trait {
+            font-size: 0.85em;
+            color: white;
+            background-color: #3498db;
+            padding: 4px 10px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        /* COLLAPSIBLE */
+        .collapsible {
+            background-color: #f9f2e2;
+            cursor: pointer;
+            padding: 12px 15px;
+            width: 100%;
+            border: 2px dotted #2980b9;
+            border-radius: 10px;
+            text-align: left;
+            outline: none;
+            font-size: 13px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 600;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #2c3e50;
+        }
+
+        .collapsible:after {
+            content: '▶';
+            font-size: 10px;
+            color: #3498db;
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible.active:after { transform: rotate(90deg); }
+
+        .collapsible:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .collapsible.active {
+            background-color: rgba(52, 152, 219, 0.15);
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 0;
+        }
+
+        .collapsible-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #f9f2e2;
+            border: 2px dotted #2980b9;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            margin-bottom: 5px;
+        }
+
+        .collapsible-content.open { max-height: 5000px; }
+        .collapsible-content > * { padding: 15px; }
+
+        /* QUOTE */
+        .quote {
+            font-style: italic;
+            padding: 15px;
+            background-color: #f5e9c9;
+            border-left: 4px solid #3498db;
+            border-radius: 0 10px 10px 0;
+            margin: 15px 0;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+
+        /* PROMPT BOX */
+        .prompt-box {
+            background-color: #f9f2e2;
+            border: 2px dashed #3498db;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+            color: #2c3e50;
+        }
+
+        /* TWO COLUMN */
+        .two-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .column { width: 100%; }
+
+        @media (min-width: 600px) {
+            .two-column { flex-direction: row; }
+            .column { flex: 1; min-width: 250px; }
+        }
+
+        /* INSIGHT GRID */
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .insight-card {
+            background-color: #f5e9c9;
+            padding: 15px;
+            border: 2px dotted #2980b9;
+            border-radius: 10px;
+        }
+
+        .insight-title {
+            font-weight: bold;
+            color: #3498db;
+            margin: 0 0 10px 0;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+
+        .insight-card p {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .insight-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* DIVIDER */
+        .dotted-divider {
+            border: none;
+            border-top: 2px dashed #3498db;
+            height: 0;
+            width: 250px;
+            margin: 30px auto;
+        }
+
+        /* ============================
+           PUNCTUATION EXPLORATION CARD
+           ============================ */
+        .punctuation-exploration {
+            background-color: #f9f2e2;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .punctuation-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background-color: #f5e9c9;
+            border-bottom: 2px dotted #2980b9;
+            flex-wrap: wrap;
+        }
+
+        .punctuation-symbol {
+            font-size: 3em;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .punctuation-info { flex: 1; min-width: 200px; }
+
+        .punctuation-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0 0 5px 0;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .punctuation-trait {
+            font-size: 1em;
+            color: #2c3e50;
+            margin: 0 0 8px 0;
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .punctuation-category {
+            display: inline-block;
+            background-color: #f9f2e2;
+            color: #2c3e50;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            border: 1px solid #2980b9;
+        }
+
+        .punctuation-body { padding: 20px; }
+
+        /* HUMAN INPUT SECTION */
+        .human-input {
+            background-color: #f5e9c9;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .human-input-header {
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .human-input-header h4 { margin: 0; color: white; }
+
+        .human-badge {
+            background-color: #f9f2e2;
+            color: #e74c3c;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .human-input-body { padding: 20px; }
+
+        .human-input-body p {
+            border: none;
+            background: none;
+            padding: 0;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .human-input-body p:last-child { margin-bottom: 0; }
+
+        /* PALETTE */
+        .palette-container {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .palette-item {
+            display: flex;
+            align-items: center;
+            background: #f9f2e2;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            border: 1px solid #ccc;
+        }
+
+        .palette-item.empty {
+            border: 2px dashed #2980b9;
+            background: transparent;
+            min-width: 120px;
+        }
+
+        .color-swatch {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            border: 2px solid #2c3e50;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .color-swatch.empty {
+            border: 2px dashed #2980b9;
+            background: #f9f2e2;
+        }
+
+        /* CONSTRAINT BOX */
+        .constraint-box {
+            background-color: #f5e9c9;
+            border: 2px dashed #3498db;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .constraint-label { font-weight: bold; color: #2c3e50; }
+        .constraint-text { color: #2c3e50; font-style: italic; }
+
+        /* VISUAL COLLAGE DISPLAY */
+        .collage-display {
+            background-color: #f5e9c9;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .collage-placeholder {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            border: 3px dashed #2980b9;
+            border-radius: 10px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f2e2;
+            color: #2c3e50;
+        }
+
+        .collage-placeholder-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+            opacity: 0.5;
+        }
+
+        .collage-placeholder-text {
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        .collage-display img {
+            max-width: 100%;
+            height: auto;
+            border: 2px dotted #2980b9;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background-color: #f9f2e2;
+            padding: 10px;
+        }
+
+        .collage-caption {
+            font-size: 0.95em;
+            color: #2c3e50;
+            font-style: italic;
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+        }
+
+        .collage-label {
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+
+        /* AI OUTPUT SECTION */
+        .ai-output {
+            background-color: #f9f2e2;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .ai-output-header {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-output-header h4 { margin: 0; color: white; }
+
+        .ai-badge {
+            background-color: #f5e9c9;
+            color: #3498db;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .ai-output-body { padding: 20px; }
+
+        /* SESSION METADATA */
+        .session-metadata {
+            background-color: #f5e9c9;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 0.85em;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .metadata-item { display: flex; gap: 5px; }
+        .metadata-label { font-weight: bold; color: #2c3e50; }
+        .metadata-value { color: #666; }
+
+        /* AUDIO PROMPT */
+        .audio-prompt {
+            background-color: #f9f2e2;
+            border: 2px dashed #3498db;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-family: monospace;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+            color: #2c3e50;
+        }
+
+        .audio-prompt-label {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            display: block;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-decoration-color: #3498db;
+        }
+
+        .audio-controls {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .audio-placeholder {
+            background-color: #f5e9c9;
+            border: 2px dashed #2980b9;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+
+        /* PROXIMITY SENSOR INFO */
+        .proximity-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            background: #f5e9c9;
+            padding: 15px;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            flex-wrap: wrap;
+        }
+
+        .proximity-icon {
+            background: #f9f2e2;
+            padding: 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dotted #2980b9;
+            flex-shrink: 0;
+        }
+
+        .proximity-text { flex: 1; min-width: 200px; }
+        .proximity-text p { border: none; background: none; padding: 0; margin: 0; }
+
+        /* HUMAN RESPONSE TO AI */
+        .human-response {
+            background-color: #f5e9c9;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .human-response-header {
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .human-response-header h4 { margin: 0; color: white; }
+
+        .human-response-body { padding: 20px; }
+
+        .human-response-body p {
+            border: none;
+            background: none;
+            padding: 0;
+            margin-bottom: 12px;
+        }
+
+        .human-response-body p:last-child { margin-bottom: 0; }
+
+        .response-placeholder {
+            border: 2px dashed #2980b9;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #2c3e50;
+            background-color: #f9f2e2;
+            font-style: italic;
+        }
+
+        /* ANALYSIS GRID */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .analysis-card {
+            background-color: #f5e9c9;
+            padding: 15px;
+            border: 2px dotted #2980b9;
+            border-radius: 10px;
+        }
+
+        .analysis-title {
+            font-weight: bold;
+            color: #3498db;
+            margin: 0 0 10px 0;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+
+        .analysis-card p {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .analysis-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 30px;
+            background-color: #f5e9c9;
+            border: 2px dotted #2980b9;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0 0 10px 0;
+            font-size: 12px;
+        }
+
+        footer p:last-child { margin-bottom: 0; }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .footer-nav a {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+        }
+
+        .footer-nav a:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        @media (min-width: 600px) {
+            body { padding: 30px; }
+            .page-wrapper { padding: 15px; }
+            .page-container { padding: 25px; }
+            h1 { font-size: 2em; }
+            .hero-title { font-size: 2.2em; }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+                padding: 10px;
+                background-size: 18px 18px;
+            }
+
+            .page-wrapper, .page-container {
+                padding: 10px;
+                width: 95%;
+                max-width: 100%;
+                border-radius: 20px;
+            }
+
+            .page-container {
+                box-shadow: none;
+                border: 2px dashed #3498db;
+            }
+
+            h1 { font-size: 1.5em; padding: 10px; }
+            h2 { font-size: 1.3em; padding: 8px; }
+            p { padding: 8px; font-size: 13px; }
+
+            .nav-section {
+                padding: 10px;
+                gap: 5px;
+            }
+
+            .nav-button {
+                font-size: 10px;
+                padding: 5px 8px;
+            }
+
+            .collapsible {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 13px;
+                padding: 5px;
+                background-size: 15px 15px;
+            }
+
+            .page-wrapper, .page-container {
+                padding: 8px;
+                border-width: 1px;
+            }
+
+            h1 { font-size: 1.3em; }
+            h2 { font-size: 1.2em; }
+            p { font-size: 12px; }
+
+            .nav-section {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 8px;
+            }
+
+            .collapsible {
+                font-size: 11px;
+                padding: 8px 10px;
+            }
+
+            .collapsible-content > * {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <div class="page-container">
+
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="hero-title-bar">
+                <h1 class="hero-title">The Secret Lives of Punctuation</h1>
+                <p class="hero-subtitle">A Human-AI Collaborative Exploration</p>
+            </div>
+
+            <!-- CLICKABLE GALLERY -->
+            <div class="hero-gallery">
+                <div class="hero-gallery-item" onclick="scrollToSection('period-exploration')">
+                    <img src="https://picsum.photos/200?grayscale&blur=1" alt="Period collage placeholder">
+                    <div class="hero-gallery-label">
+                        <span class="hero-gallery-symbol">.</span>
+                        Period
+                    </div>
+                </div>
+                <div class="hero-gallery-item" onclick="scrollToSection('comma-exploration')">
+                    <img src="https://picsum.photos/201?grayscale&blur=1" alt="Comma collage placeholder">
+                    <div class="hero-gallery-label">
+                        <span class="hero-gallery-symbol">,</span>
+                        Comma
+                    </div>
+                </div>
+                <div class="hero-gallery-item" onclick="scrollToSection('question-exploration')">
+                    <img src="https://picsum.photos/202?grayscale&blur=1" alt="Question mark collage placeholder">
+                    <div class="hero-gallery-label">
+                        <span class="hero-gallery-symbol">?</span>
+                        Question
+                    </div>
+                </div>
+                <div class="hero-gallery-item" onclick="scrollToSection('exclamation-exploration')">
+                    <img src="https://picsum.photos/203?grayscale&blur=1" alt="Exclamation collage placeholder">
+                    <div class="hero-gallery-label">
+                        <span class="hero-gallery-symbol">!</span>
+                        Exclamation
+                    </div>
+                </div>
+                <div class="hero-gallery-item" onclick="scrollToSection('semicolon-exploration')">
+                    <img src="https://picsum.photos/204?grayscale&blur=1" alt="Semicolon collage placeholder">
+                    <div class="hero-gallery-label">
+                        <span class="hero-gallery-symbol">;</span>
+                        Semicolon
+                    </div>
+                </div>
+                <div class="hero-gallery-item" onclick="scrollToSection('colon-exploration')">
+                    <img src="https://picsum.photos/205?grayscale&blur=1" alt="Colon collage placeholder">
+                    <div class="hero-gallery-label">
+                        <span class="hero-gallery-symbol">:</span>
+                        Colon
+                    </div>
+                </div>
+                <div class="hero-gallery-item" onclick="scrollToSection('dash-exploration')">
+                    <img src="https://picsum.photos/206?grayscale&blur=1" alt="Em dash collage placeholder">
+                    <div class="hero-gallery-label">
+                        <span class="hero-gallery-symbol">—</span>
+                        Em Dash
+                    </div>
+                </div>
+                <div class="hero-gallery-item" onclick="scrollToSection('ellipsis-exploration')">
+                    <img src="https://picsum.photos/207?grayscale&blur=1" alt="Ellipsis collage placeholder">
+                    <div class="hero-gallery-label">
+                        <span class="hero-gallery-symbol">...</span>
+                        Ellipsis
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-statement">
+                <p>"Punctuation marks are the traffic signals of language—invisible until they malfunction, essential until we notice them."</p>
+            </div>
+        </section>
+
+        <!-- NAVIGATION -->
+        <nav class="nav-section">
+            <button class="nav-button active" onclick="scrollToSection('introduction')">Introduction</button>
+            <button class="nav-button" onclick="scrollToSection('framework')">Framework</button>
+            <button class="nav-button" onclick="scrollToSection('method')">Method</button>
+            <button class="nav-button" onclick="scrollToSection('characters')">Characters</button>
+            <button class="nav-button" onclick="scrollToSection('explorations')">Explorations</button>
+            <button class="nav-button" onclick="scrollToSection('reflection')">Reflections</button>
+        </nav>
+
+        <main>
+            <!-- INTRODUCTION -->
+            <section id="introduction">
+                <div class="section-content">
+                    <h2 class="section-title">Introduction</h2>
+
+                    <div class="introduction">
+                        <p>This project investigates how AI interprets the semantic and emotional weight of punctuation marks—those small symbols that shape meaning, rhythm, and feeling in written language.</p>
+
+                        <p>Following the methodology established in <em>Embodied Without a Body</em>, I create hand-made collages representing each punctuation mark as a character with distinct personality traits. These collages inform audio prompts for AI generation, producing soundscapes that reveal how artificial systems might translate the subtle signals that punctuation carries into sonic form.</p>
+
+                        <p>The inquiry centers on a fundamental question: Can AI recognize that a full stop carries finality, that an ellipsis holds suspension, that an exclamation mark vibrates with intensity? And can it express these qualities through sound?</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>A Note on AI Partners</h4>
+                        <p>This project uses <strong>Stable Audio</strong> as the primary AI partner for generating soundscapes. The translation from visual collage to sonic form creates a unique interpretive challenge—the AI must process color, composition, and spatial relationships expressed through my prompts and render them as rhythm, texture, and tone.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAMEWORK -->
+            <section id="framework">
+                <div class="section-content">
+                    <h2 class="section-title">Theoretical Framework</h2>
+
+                    <div class="introduction">
+                        <p>Punctuation operates on multiple levels simultaneously: grammatical (structuring sentences), semantic (shaping meaning), and affective (conveying emotion and tone). This project treats punctuation marks as entities with distinct behavioral profiles—characters whose personalities emerge through their function.</p>
+                    </div>
+
+                    <button class="collapsible">Punctuation as Character</button>
+                    <div class="collapsible-content">
+                        <div class="quote">
+                            Each punctuation mark carries implicit personality traits derived from its function. The period is decisive and final. The comma is connective, holding things together while allowing breath. The question mark is curious, always seeking. The exclamation mark is emphatic, unable to contain itself. By treating these marks as characters, we create a framework for exploring how AI might recognize and respond to their distinct qualities.
+                        </div>
+                    </div>
+
+                    <button class="collapsible">The Shape of Meaning</button>
+                    <div class="collapsible-content">
+                        <div class="quote">
+                            Punctuation marks have visual forms that carry meaning beyond their grammatical function. The period is a point—complete, contained, final. The ellipsis trails off... suggesting continuation or hesitation. The question mark curves upward, embodying the rise of inquiry. These visual qualities inform the collages and test whether AI can recognize the relationship between form and function.
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Rhythm and Breath</button>
+                    <div class="collapsible-content">
+                        <div class="quote">
+                            In spoken language, punctuation marks represent pauses, emphases, and tonal shifts. The semicolon creates a longer pause than a comma but maintains connection; the dash interrupts—suddenly—with something urgent. This project explores whether AI can process the temporal and rhythmic qualities that punctuation encodes and translate them into sound.
+                        </div>
+                    </div>
+
+                    <div class="insight-grid">
+                        <div class="insight-card">
+                            <h5 class="insight-title">Grammatical Function</h5>
+                            <p>How punctuation structures and organizes language—creating boundaries, hierarchies, and relationships between elements.</p>
+                        </div>
+
+                        <div class="insight-card">
+                            <h5 class="insight-title">Semantic Weight</h5>
+                            <p>How punctuation shapes meaning—the difference between "Let's eat, grandma" and "Let's eat grandma."</p>
+                        </div>
+
+                        <div class="insight-card">
+                            <h5 class="insight-title">Affective Dimension</h5>
+                            <p>How punctuation conveys emotion and tone—the enthusiasm of exclamation, the uncertainty of ellipsis, the finality of period.</p>
+                        </div>
+
+                        <div class="insight-card">
+                            <h5 class="insight-title">Sonic Translation</h5>
+                            <p>How the character of each mark can be expressed through sound—rhythm, texture, tempo, and tonal quality.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- METHOD -->
+            <section id="method">
+                <div class="section-content">
+                    <h2 class="section-title">Methodology</h2>
+
+                    <div class="workflow-box">
+                        <div class="workflow-header">
+                            <h4>Collaborative Process</h4>
+                        </div>
+                        <div class="workflow-steps">
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <span class="step-title">Character Development</span>
+                                <div class="step-content">
+                                    <p>Each punctuation mark is developed as an entity with personality traits, behavioral patterns, and visual attributes derived from its linguistic function.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <span class="step-title">Collage Creation</span>
+                                <div class="step-content">
+                                    <p>Hand-made collages capture the essence of each punctuation character using a limited three-color palette. Shapes, compositions, and spatial arrangements express the mark's personality.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                <span class="step-title">Audio Prompt Construction</span>
+                                <div class="step-content">
+                                    <p>The collage's color palette is translated into an audio prompt that maps each color to a sonic layer—texture, rhythm, and atmosphere—using the punctuation mark's constraint as a guide.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <span class="step-number">4</span>
+                                <span class="step-title">AI Audio Generation</span>
+                                <div class="step-content">
+                                    <p>Stable Audio generates a soundscape from the prompt, creating an ambient piece that embodies the punctuation mark's temporal, spatial, and emotional character.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <span class="step-number">5</span>
+                                <span class="step-title">Human Response & Reflection</span>
+                                <div class="step-content">
+                                    <p>I listen to the AI output and document my response: what surprised me, what aligned with my expectations, what the collaboration revealed about the punctuation mark's character.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="two-column">
+                        <div class="column">
+                            <button class="collapsible">Terminal Marks</button>
+                            <div class="collapsible-content">
+                                <p style="border: none; background: none; padding: 15px;"><strong>Period, Question Mark, Exclamation</strong></p>
+                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Constraint: "maintain consistent intensity through completion"</p>
+                            </div>
+
+                            <button class="collapsible">Connective Marks</button>
+                            <div class="collapsible-content">
+                                <p style="border: none; background: none; padding: 15px;"><strong>Comma, Semicolon, Colon</strong></p>
+                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Constraint: "modulate expression based on surrounding elements"</p>
+                            </div>
+
+                            <button class="collapsible">Interruptive Marks</button>
+                            <div class="collapsible-content">
+                                <p style="border: none; background: none; padding: 15px;"><strong>Em Dash, Parentheses</strong></p>
+                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Constraint: "create rupture while maintaining thread"</p>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <button class="collapsible">Suspensive Marks</button>
+                            <div class="collapsible-content">
+                                <p style="border: none; background: none; padding: 15px;"><strong>Ellipsis</strong></p>
+                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Constraint: "trail without resolution, preserve continuation"</p>
+                            </div>
+
+                            <button class="collapsible">Framing Marks</button>
+                            <div class="collapsible-content">
+                                <p style="border: none; background: none; padding: 15px;"><strong>Quotation Marks</strong></p>
+                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Constraint: "establish distance while containing"</p>
+                            </div>
+
+                            <button class="collapsible">Binding Marks</button>
+                            <div class="collapsible-content">
+                                <p style="border: none; background: none; padding: 15px;"><strong>Hyphen, Apostrophe</strong></p>
+                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Constraint: "join while transforming"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHARACTERS -->
+            <section id="characters">
+                <div class="section-content">
+                    <h2 class="section-title">Punctuation Characters</h2>
+
+                    <div class="introduction">
+                        <p>Each punctuation mark is treated as a character with distinct personality traits. These profiles inform the collage creation and provide a framework for the audio prompts.</p>
+                    </div>
+
+                    <div class="character-grid">
+                        <div class="character-card" onclick="scrollToSection('period-exploration')">
+                            <div class="character-symbol">.</div>
+                            <div class="character-name">The Period</div>
+                            <div class="character-trait">Decisive & Final</div>
+                        </div>
+
+                        <div class="character-card" onclick="scrollToSection('comma-exploration')">
+                            <div class="character-symbol">,</div>
+                            <div class="character-name">The Comma</div>
+                            <div class="character-trait">Connective & Breathing</div>
+                        </div>
+
+                        <div class="character-card" onclick="scrollToSection('question-exploration')">
+                            <div class="character-symbol">?</div>
+                            <div class="character-name">The Question Mark</div>
+                            <div class="character-trait">Curious & Seeking</div>
+                        </div>
+
+                        <div class="character-card" onclick="scrollToSection('exclamation-exploration')">
+                            <div class="character-symbol">!</div>
+                            <div class="character-name">The Exclamation</div>
+                            <div class="character-trait">Emphatic & Intense</div>
+                        </div>
+
+                        <div class="character-card" onclick="scrollToSection('semicolon-exploration')">
+                            <div class="character-symbol">;</div>
+                            <div class="character-name">The Semicolon</div>
+                            <div class="character-trait">Thoughtful & Bridging</div>
+                        </div>
+
+                        <div class="character-card" onclick="scrollToSection('ellipsis-exploration')">
+                            <div class="character-symbol">...</div>
+                            <div class="character-name">The Ellipsis</div>
+                            <div class="character-trait">Trailing & Suspending</div>
+                        </div>
+
+                        <div class="character-card" onclick="scrollToSection('dash-exploration')">
+                            <div class="character-symbol">—</div>
+                            <div class="character-name">The Em Dash</div>
+                            <div class="character-trait">Interrupting & Urgent</div>
+                        </div>
+
+                        <div class="character-card" onclick="scrollToSection('colon-exploration')">
+                            <div class="character-symbol">:</div>
+                            <div class="character-name">The Colon</div>
+                            <div class="character-trait">Announcing & Presenting</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="dotted-divider">
+
+            <!-- EXPLORATIONS SECTION -->
+            <section id="explorations">
+                <h2 style="text-align: center; background-color: #f5e9c9; padding: 15px; border: 2px dotted #2980b9; border-radius: 15px; margin-bottom: 25px;">Punctuation Explorations</h2>
+
+                <!-- PERIOD EXPLORATION -->
+                <div id="period-exploration" class="punctuation-exploration">
+                    <div class="punctuation-header">
+                        <div class="punctuation-symbol">.</div>
+                        <div class="punctuation-info">
+                            <h3 class="punctuation-name">The Period</h3>
+                            <p class="punctuation-trait">Decisive & Final</p>
+                            <span class="punctuation-category">Terminal Mark</span>
+                        </div>
+                    </div>
+
+                    <div class="punctuation-body">
+
+                        <div class="human-input">
+                            <div class="human-input-header">
+                                <h4>My Initial Reflection</h4>
+                                <span class="human-badge">Human</span>
+                            </div>
+                            <div class="human-input-body">
+                                <p class="response-placeholder">[Your reflection on the period before creating the collage—what does this mark mean to you? What qualities do you want to capture?]</p>
+                            </div>
+                        </div>
+
+                        <div class="collage-display">
+                            <div class="collage-label">Hand-Made Collage</div>
+                            <div class="collage-placeholder">
+                                <div class="collage-placeholder-icon">🎨</div>
+                                <div class="collage-placeholder-text">Your collage image here</div>
+                            </div>
+                            <p class="collage-caption">[Caption describing your collage]</p>
+                        </div>
+
+                        <div class="palette-container">
+                            <div class="palette-item empty">
+                                <span class="color-swatch empty"></span>
+                                <span>Color 1 #______</span>
+                            </div>
+                            <div class="palette-item empty">
+                                <span class="color-swatch empty"></span>
+                                <span>Color 2 #______</span>
+                            </div>
+                            <div class="palette-item empty">
+                                <span class="color-swatch empty"></span>
+                                <span>Color 3 #______</span>
+                            </div>
+                        </div>
+
+                        <div class="constraint-box">
+                            <span class="constraint-label">Constraint:</span>
+                            <span class="constraint-text">"maintain consistent intensity through completion"</span>
+                        </div>
+
+                        <div class="proximity-container">
+                            <div class="proximity-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <circle cx="12" cy="12" r="6"/>
+                                    <circle cx="12" cy="12" r="2"/>
+                                </svg>
+                            </div>
+                            <div class="proximity-text">
+                                <p><strong>Physical-Digital Bridge:</strong> A proximity sensor embedded in the physical installation detects when you approach. Move closer to the object and the soundscape activates—the period's finality made audible through presence.</p>
+                            </div>
+                        </div>
+
+                        <div class="ai-output">
+                            <div class="ai-output-header">
+                                <h4>AI Audio Output</h4>
+                                <span class="ai-badge">Stable Audio</span>
+                            </div>
+                            <div class="ai-output-body">
+                                <div class="session-metadata">
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">Generated:</span>
+                                        <span class="metadata-value">[Date]</span>
+                                    </div>
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">Model:</span>
+                                        <span class="metadata-value">Stable Audio 2.0</span>
+                                    </div>
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">Duration:</span>
+                                        <span class="metadata-value">[Duration], loop</span>
+                                    </div>
+                                </div>
+
+                                <span class="audio-prompt-label">Audio Prompt:</span>
+                                <div class="audio-prompt">[Your audio prompt here—mapping colors to sonic layers, describing the mood, referencing artists/styles]</div>
+
+                                <div class="audio-placeholder">
+                                    <p>🔊 Audio player will appear here once the soundscape is generated</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="human-response">
+                            <div class="human-response-header">
+                                <h4>My Response to the AI Output</h4>
+                                <span class="human-badge">Human</span>
+                            </div>
+                            <div class="human-response-body">
+                                <p class="response-placeholder">[Your reflection after hearing the AI-generated soundscape. What surprised you? What aligned with your expectations? What did the collaboration reveal about the period's character that you hadn't considered?]</p>
+                            </div>
+                        </div>
+
+                        <button class="collapsible">Analysis & Observations</button>
+                        <div class="collapsible-content">
+                            <div class="analysis-grid">
+                                <div class="analysis-card">
+                                    <h5 class="analysis-title">Observation 1</h5>
+                                    <p>[Your analysis point]</p>
+                                </div>
+                                <div class="analysis-card">
+                                    <h5 class="analysis-title">Observation 2</h5>
+                                    <p>[Your analysis point]</p>
+                                </div>
+                                <div class="analysis-card">
+                                    <h5 class="analysis-title">Observation 3</h5>
+                                    <p>[Your analysis point]</p>
+                                </div>
+                                <div class="analysis-card">
+                                    <h5 class="analysis-title">Observation 4</h5>
+                                    <p>[Your analysis point]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="dotted-divider">
+
+                <!-- ELLIPSIS EXPLORATION -->
+                <div id="ellipsis-exploration" class="punctuation-exploration">
+                    <div class="punctuation-header">
+                        <div class="punctuation-symbol">...</div>
+                        <div class="punctuation-info">
+                            <h3 class="punctuation-name">The Ellipsis</h3>
+                            <p class="punctuation-trait">Trailing & Suspending</p>
+                            <span class="punctuation-category">Suspensive Mark</span>
+                        </div>
+                    </div>
+
+                    <div class="punctuation-body">
+
+                        <div class="human-input">
+                            <div class="human-input-header">
+                                <h4>My Initial Reflection</h4>
+                                <span class="human-badge">Human</span>
+                            </div>
+                            <div class="human-input-body">
+                                <p class="response-placeholder">[Your reflection on the ellipsis before creating the collage—what does this mark mean to you? What qualities do you want to capture?]</p>
+                            </div>
+                        </div>
+
+                        <div class="collage-display">
+                            <div class="collage-label">Hand-Made Collage</div>
+                            <div class="collage-placeholder">
+                                <div class="collage-placeholder-icon">🎨</div>
+                                <div class="collage-placeholder-text">Your collage image here</div>
+                            </div>
+                            <p class="collage-caption">[Caption describing your collage]</p>
+                        </div>
+
+                        <div class="palette-container">
+                            <div class="palette-item empty">
+                                <span class="color-swatch empty"></span>
+                                <span>Color 1 #______</span>
+                            </div>
+                            <div class="palette-item empty">
+                                <span class="color-swatch empty"></span>
+                                <span>Color 2 #______</span>
+                            </div>
+                            <div class="palette-item empty">
+                                <span class="color-swatch empty"></span>
+                                <span>Color 3 #______</span>
+                            </div>
+                        </div>
+
+                        <div class="constraint-box">
+                            <span class="constraint-label">Constraint:</span>
+                            <span class="constraint-text">"trail without resolution, preserve continuation"</span>
+                        </div>
+
+                        <div class="proximity-container">
+                            <div class="proximity-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <circle cx="12" cy="12" r="6"/>
+                                    <circle cx="12" cy="12" r="2"/>
+                                </svg>
+                            </div>
+                            <div class="proximity-text">
+                                <p><strong>Physical-Digital Bridge:</strong> Approach the object and the soundscape begins... but step back and it trails off, never quite completing. The ellipsis embodied in interaction.</p>
+                            </div>
+                        </div>
+
+                        <div class="ai-output">
+                            <div class="ai-output-header">
+                                <h4>AI Audio Output</h4>
+                                <span class="ai-badge">Stable Audio</span>
+                            </div>
+                            <div class="ai-output-body">
+                                <div class="session-metadata">
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">Generated:</span>
+                                        <span class="metadata-value">[Date]</span>
+                                    </div>
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">Model:</span>
+                                        <span class="metadata-value">Stable Audio 2.0</span>
+                                    </div>
+                                    <div class="metadata-item">
+                                        <span class="metadata-label">Duration:</span>
+                                        <span class="metadata-value">[Duration], loop</span>
+                                    </div>
+                                </div>
+
+                                <span class="audio-prompt-label">Audio Prompt:</span>
+                                <div class="audio-prompt">[Your audio prompt here...]</div>
+
+                                <div class="audio-placeholder">
+                                    <p>🔊 Audio player will appear here once the soundscape is generated</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="human-response">
+                            <div class="human-response-header">
+                                <h4>My Response to the AI Output</h4>
+                                <span class="human-badge">Human</span>
+                            </div>
+                            <div class="human-response-body">
+                                <p class="response-placeholder">[Your reflection after hearing the AI-generated soundscape...]</p>
+                            </div>
+                        </div>
+
+                        <button class="collapsible">Analysis & Observations</button>
+                        <div class="collapsible-content">
+                            <div class="analysis-grid">
+                                <div class="analysis-card">
+                                    <h5 class="analysis-title">Observation 1</h5>
+                                    <p>[Your analysis point]</p>
+                                </div>
+                                <div class="analysis-card">
+                                    <h5 class="analysis-title">Observation 2</h5>
+                                    <p>[Your analysis point]</p>
+                                </div>
+                                <div class="analysis-card">
+                                    <h5 class="analysis-title">Observation 3</h5>
+                                    <p>[Your analysis point]</p>
+                                </div>
+                                <div class="analysis-card">
+                                    <h5 class="analysis-title">Observation 4</h5>
+                                    <p>[Your analysis point]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="dotted-divider">
+
+                <!-- PLACEHOLDER EXPLORATIONS -->
+                <div id="comma-exploration" class="section-content">
+                    <h3 class="section-title">, Comma — Coming Soon</h3>
+                    <div class="introduction">
+                        <p>The comma exploration is in progress. Check back for the collage and audio exploring the connective, breathing quality of this essential mark.</p>
+                    </div>
+                </div>
+
+                <div id="question-exploration" class="section-content">
+                    <h3 class="section-title">? Question Mark — Coming Soon</h3>
+                    <div class="introduction">
+                        <p>The question mark exploration is in progress. This curious, seeking mark curves upward in perpetual inquiry...</p>
+                    </div>
+                </div>
+
+                <div id="exclamation-exploration" class="section-content">
+                    <h3 class="section-title">! Exclamation — Coming Soon</h3>
+                    <div class="introduction">
+                        <p>The exclamation mark exploration is in progress. This emphatic, intense mark cannot contain itself...</p>
+                    </div>
+                </div>
+
+                <div id="semicolon-exploration" class="section-content">
+                    <h3 class="section-title">; Semicolon — Coming Soon</h3>
+                    <div class="introduction">
+                        <p>The semicolon exploration is in progress. This thoughtful mark bridges what could be separate...</p>
+                    </div>
+                </div>
+
+                <div id="colon-exploration" class="section-content">
+                    <h3 class="section-title">: Colon — Coming Soon</h3>
+                    <div class="introduction">
+                        <p>The colon exploration is in progress. This announcing mark prepares you for what follows...</p>
+                    </div>
+                </div>
+
+                <div id="dash-exploration" class="section-content">
+                    <h3 class="section-title">— Em Dash — Coming Soon</h3>
+                    <div class="introduction">
+                        <p>The em dash exploration is in progress. This interrupting mark breaks in—suddenly—with urgency...</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="dotted-divider">
+
+            <!-- REFLECTION -->
+            <section id="reflection">
+                <div class="section-content">
+                    <h2 class="section-title">Reflections on Punctuation & AI</h2>
+
+                    <div class="introduction">
+                        <p>[This section will grow as you complete more explorations—a space for broader reflections on the project as a whole, patterns you notice across different punctuation marks, and insights about human-AI collaboration through this process.]</p>
+                    </div>
+
+                    <div class="insight-grid">
+                        <div class="insight-card">
+                            <h5 class="insight-title">Visual → Sonic Translation</h5>
+                            <p>What survives the translation from collage to soundscape? What gets lost? What emerges that wasn't visible in the original?</p>
+                        </div>
+
+                        <div class="insight-card">
+                            <h5 class="insight-title">Prompt as Interpretation</h5>
+                            <p>The audio prompt itself is an act of interpretation—my reading of the collage, translated into instructions for the AI. The final audio is doubly mediated.</p>
+                        </div>
+
+                        <div class="insight-card">
+                            <h5 class="insight-title">Proximity as Presence</h5>
+                            <p>The proximity sensor transforms passive viewing into active encounter. Your body's movement becomes part of the punctuation's expression.</p>
+                        </div>
+
+                        <div class="insight-card">
+                            <h5 class="insight-title">Dialogue Structure</h5>
+                            <p>The project creates a three-part conversation: my initial reflection, the AI's sonic interpretation, and my response. Each informs the next exploration.</p>
+                        </div>
+                    </div>
+
+                    <div class="quote">
+                        "The punctuation marks in any sentence carry the breath and pause and emphasis of the voice that wrote them. This project asks: can a machine hear that breath? And can it breathe it back to us as sound?"
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-nav">
+                <a href="#introduction">Introduction</a>
+                <a href="#framework">Framework</a>
+                <a href="#method">Method</a>
+                <a href="#characters">Characters</a>
+                <a href="#explorations">Explorations</a>
+                <a href="#reflection">Reflections</a>
+            </div>
+            <p><strong>The Secret Lives of Punctuation</strong></p>
+            <p>A Human-AI Collaborative Research Project</p>
+            <p>Visual: Hand-made Collages | Audio: Stable Audio | Interaction: Proximity Sensor</p>
+            <p>© 2025 — Exploring how meaning lives in the smallest marks</p>
+        </footer>
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.classList.contains("open")) {
+                    content.classList.remove("open");
+                    content.style.maxHeight = null;
+                } else {
+                    content.classList.add("open");
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+
+        window.scrollToSection = function(id) {
+            var element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({behavior: "smooth", block: "start"});
+            }
+        };
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
