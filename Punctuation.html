@@ -1013,6 +1013,63 @@
             .analysis-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
+        /* RESEARCH QUESTIONS */
+        .research-questions {
+            background-color: #f5e9c9;
+            border: 2px dashed #e74c3c;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .research-questions h4 {
+            color: #e74c3c;
+            margin: 0 0 15px 0;
+            text-align: center;
+        }
+
+        .research-questions ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .research-questions li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .research-questions li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* FINDINGS BOX */
+        .findings-box {
+            background-color: #f9f2e2;
+            border: 2px solid #27ae60;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .findings-box h4 {
+            color: #27ae60;
+            margin: 0 0 15px 0;
+            text-align: center;
+            border-bottom: 2px dashed #27ae60;
+            padding-bottom: 10px;
+        }
+
+        .findings-box p {
+            border: none;
+            background: none;
+            padding: 0;
+            margin-bottom: 12px;
+        }
+
+        .findings-box p:last-child {
+            margin-bottom: 0;
+        }
+
         /* FOOTER */
         footer {
             margin-top: 30px;
@@ -1148,7 +1205,7 @@
         <section class="hero-section">
             <div class="hero-title-bar">
                 <h1 class="hero-title">The Secret Lives of Punctuation</h1>
-                <p class="hero-subtitle">A Human-AI Collaborative Exploration</p>
+                <p class="hero-subtitle">Investigating Pattern, Constraint, and Felt Structure in Human-AI Processing</p>
             </div>
 
             <!-- CLICKABLE GALLERY -->
@@ -1212,7 +1269,7 @@
             </div>
 
             <div class="hero-statement">
-                <p>"Punctuation marks are the traffic signals of language—invisible until they malfunction, essential until we notice them."</p>
+                <p>"If sound can produce different emotive outcomes through rhythm and intensity alone—without referring to anything—might a machine's processing of punctuation constitute its own form of felt structure, however alien to ours?"</p>
             </div>
         </section>
 
@@ -1223,7 +1280,7 @@
             <button class="nav-button" onclick="scrollToSection('method')">Method</button>
             <button class="nav-button" onclick="scrollToSection('characters')">Characters</button>
             <button class="nav-button" onclick="scrollToSection('explorations')">Explorations</button>
-            <button class="nav-button" onclick="scrollToSection('reflection')">Reflections</button>
+            <button class="nav-button" onclick="scrollToSection('findings')">Findings</button>
         </nav>
 
         <main>
@@ -1233,18 +1290,25 @@
                     <h2 class="section-title">Introduction</h2>
 
                     <div class="introduction">
-                        <div class="introduction">
-                            <p>Punctuation marks are the in-between bits of language—abstract elements that don't carry heavy semantic meaning but remain structurally aloof. For a language model, emotion isn't an embodied experience, and we must be careful not to anthropomorphise. Yet we are training these systems to mimic us, and in that mimicry something functional must occur.</p>
-                        
-                            <p>Perhaps it lives in the patterns themselves: when a model generates a pause, does the pattern slow? Does a full stop create a kind of computational constraint, a momentary halt that shapes what follows? If sound can produce different emotive outcomes through rhythm and intensity alone, without referring to anything, might punctuation do something similar within language—and might a machine's processing of these marks constitute its own form of felt structure, however alien to ours?</p>
-                        
-                            <p>Following the methodology established in <em>Embodied Without a Body</em>, I create hand-made collages representing each punctuation mark as a character with distinct personality traits. These collages inform audio prompts for AI generation, producing soundscapes that reveal how artificial systems might translate the subtle signals that punctuation carries into sonic form.</p>
-                        </div>
+                        <p>Punctuation marks are the in-between bits of language—abstract elements that don't carry heavy semantic meaning but remain structurally aloof. For a language model, emotion isn't an embodied experience, and we must be careful not to anthropomorphise. Yet we are training these systems to mimic us, and in that mimicry something functional must occur.</p>
+                    
+                        <p>Perhaps it lives in the patterns themselves: when a model generates a pause, does the pattern slow? Does a full stop create a kind of computational constraint, a momentary halt that shapes what follows? If sound can produce different emotive outcomes through rhythm and intensity alone, without referring to anything, might punctuation do something similar within language—and might a machine's processing of these marks constitute its own form of felt structure, however alien to ours?</p>
+                    
+                        <p>This project attempts to make that question tangible. Following the methodology established in <em>Embodied Without a Body</em>, I create hand-made collages representing each punctuation mark as a character with distinct personality traits. These collages inform audio prompts for AI generation, producing soundscapes that reveal how artificial systems might translate the subtle signals that punctuation carries into sonic form.</p>
+                    </div>
+
+                    <div class="research-questions">
+                        <h4>Core Research Questions</h4>
+                        <ul>
+                            <li>Do punctuation marks create functional constraints in AI processing analogous to their rhythmic and affective functions in human language?</li>
+                            <li>Can the gap between human embodied interpretation (collage) and machine pattern-processing (audio generation) reveal something about the nature of each?</li>
+                            <li>If intensity modulation produces recognisable effects in both human experience and machine output, what does this suggest about the relationship between pattern and feeling?</li>
+                        </ul>
                     </div>
 
                     <div class="highlight-box">
-                        <h4>A Note on AI Partners</h4>
-                        <p>This project uses <strong>Stable Audio</strong> as the primary AI partner for generating soundscapes. The translation from visual collage to sonic form creates a unique interpretive challenge—the AI must process color, composition, and spatial relationships expressed through my prompts and render them as rhythm, texture, and tone.</p>
+                        <h4>A Note on Method</h4>
+                        <p>This project uses <strong>Stable Audio</strong> as the primary AI partner for generating soundscapes. The translation from visual collage to sonic form creates a productive gap—my embodied interpretation of a punctuation mark, expressed through physical materials and colour, meets the AI's pattern-based processing of my verbal prompt. The differences and resonances between these outputs become the primary data of the investigation.</p>
                     </div>
                 </div>
             </section>
@@ -1255,49 +1319,49 @@
                     <h2 class="section-title">Theoretical Framework</h2>
 
                     <div class="introduction">
-                        <p>Punctuation operates on multiple levels simultaneously: grammatical (structuring sentences), semantic (shaping meaning), and affective (conveying emotion and tone). This project treats punctuation marks as entities with distinct behavioral profiles—characters whose personalities emerge through their function.</p>
+                        <p>This project sits at the intersection of several ongoing debates: the symbol grounding problem in AI, the relationship between language and embodied cognition, and the question of whether pattern-based processing can constitute a form of understanding. Rather than arguing for a particular position, the work creates a space where these questions can be investigated materially.</p>
                     </div>
 
-                    <button class="collapsible">Punctuation as Character</button>
+                    <button class="collapsible">Punctuation as Abstract Marker</button>
                     <div class="collapsible-content">
                         <div class="quote">
-                            Each punctuation mark carries implicit personality traits derived from its function. The period is decisive and final. The comma is connective, holding things together while allowing breath. The question mark is curious, always seeking. The exclamation mark is emphatic, unable to contain itself. By treating these marks as characters, we create a framework for exploring how AI might recognize and respond to their distinct qualities.
+                            Unlike words, punctuation marks don't refer to objects or concepts in the world. A period doesn't mean "ending" the way the word "ending" does—it performs ending. This makes punctuation uniquely suited to investigating whether AI can process functional qualities rather than just semantic content. If a model responds differently to a period than to a comma, what kind of recognition is that?
                         </div>
                     </div>
 
-                    <button class="collapsible">The Shape of Meaning</button>
+                    <button class="collapsible">Pattern as Felt Structure</button>
                     <div class="collapsible-content">
                         <div class="quote">
-                            Punctuation marks have visual forms that carry meaning beyond their grammatical function. The period is a point—complete, contained, final. The ellipsis trails off... suggesting continuation or hesitation. The question mark curves upward, embodying the rise of inquiry. These visual qualities inform the collages and test whether AI can recognize the relationship between form and function.
+                            When humans encounter a pause in music or speech, we don't just register it cognitively—we feel the suspension, the anticipation. This project proposes that pattern-based processing might have functional equivalents to these felt qualities. Not emotion as we experience it, but something like emotion's structural signature: constraints, intensities, rhythms that shape output without requiring embodiment.
                         </div>
                     </div>
 
-                    <button class="collapsible">Rhythm and Breath</button>
+                    <button class="collapsible">The Productive Gap</button>
                     <div class="collapsible-content">
                         <div class="quote">
-                            In spoken language, punctuation marks represent pauses, emphases, and tonal shifts. The semicolon creates a longer pause than a comma but maintains connection; the dash interrupts—suddenly—with something urgent. This project explores whether AI can process the temporal and rhythmic qualities that punctuation encodes and translate them into sound.
+                            The space between my collage and the AI's audio output is not a failure of translation—it's the research site. Where do human and machine interpretation converge? Where do they diverge? What does a period "feel like" to me, expressed in torn paper and colour? What does it "feel like" to an AI, expressed in generated sound? The gap between these two expressions is where the interesting questions live.
                         </div>
                     </div>
 
                     <div class="insight-grid">
                         <div class="insight-card">
-                            <h5 class="insight-title">Grammatical Function</h5>
-                            <p>How punctuation structures and organizes language—creating boundaries, hierarchies, and relationships between elements.</p>
+                            <h5 class="insight-title">Human Processing</h5>
+                            <p>Embodied, associative, shaped by personal history and physical sensation. My collage emerges from how a period feels in my body when I write one.</p>
                         </div>
 
                         <div class="insight-card">
-                            <h5 class="insight-title">Semantic Weight</h5>
-                            <p>How punctuation shapes meaning—the difference between "Let's eat, grandma" and "Let's eat grandma."</p>
+                            <h5 class="insight-title">Machine Processing</h5>
+                            <p>Pattern-based, statistical, shaped by training data. The AI's audio emerges from how periods function across millions of texts.</p>
                         </div>
 
                         <div class="insight-card">
-                            <h5 class="insight-title">Affective Dimension</h5>
-                            <p>How punctuation conveys emotion and tone—the enthusiasm of exclamation, the uncertainty of ellipsis, the finality of period.</p>
+                            <h5 class="insight-title">Convergence Points</h5>
+                            <p>Where both human and machine produce similar qualities—a sense of finality, of suspension, of urgency—suggests something structural about the mark itself.</p>
                         </div>
 
                         <div class="insight-card">
-                            <h5 class="insight-title">Sonic Translation</h5>
-                            <p>How the character of each mark can be expressed through sound—rhythm, texture, tempo, and tonal quality.</p>
+                            <h5 class="insight-title">Divergence Points</h5>
+                            <p>Where human and machine diverge reveals what embodiment adds, or what pattern-processing misses, or what each brings that the other cannot.</p>
                         </div>
                     </div>
                 </div>
@@ -1310,49 +1374,54 @@
 
                     <div class="workflow-box">
                         <div class="workflow-header">
-                            <h4>Collaborative Process</h4>
+                            <h4>Investigative Process</h4>
                         </div>
                         <div class="workflow-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
-                                <span class="step-title">Character Development</span>
+                                <span class="step-title">Embodied Reflection</span>
                                 <div class="step-content">
-                                    <p>Each punctuation mark is developed as an entity with personality traits, behavioral patterns, and visual attributes derived from its linguistic function.</p>
+                                    <p>Before creating anything, I sit with the punctuation mark. What does it feel like to encounter a period? Where do I feel it in my body? What associations arise? This reflection is documented as the human baseline.</p>
                                 </div>
                             </div>
 
                             <div class="step">
                                 <span class="step-number">2</span>
-                                <span class="step-title">Collage Creation</span>
+                                <span class="step-title">Collage as Embodied Interpretation</span>
                                 <div class="step-content">
-                                    <p>Hand-made collages capture the essence of each punctuation character using a limited three-color palette. Shapes, compositions, and spatial arrangements express the mark's personality.</p>
+                                    <p>Hand-made collages translate felt qualities into visual form using a limited three-colour palette. The physical act of tearing, arranging, and composing becomes a way of thinking through the mark's character.</p>
                                 </div>
                             </div>
 
                             <div class="step">
                                 <span class="step-number">3</span>
-                                <span class="step-title">Audio Prompt Construction</span>
+                                <span class="step-title">Prompt as Translation</span>
                                 <div class="step-content">
-                                    <p>The collage's color palette is translated into an audio prompt that maps each color to a sonic layer—texture, rhythm, and atmosphere—using the punctuation mark's constraint as a guide.</p>
+                                    <p>The collage informs an audio prompt—my verbal interpretation of the visual, translated into instructions for the AI. This is itself an act of interpretation, a second layer of mediation.</p>
                                 </div>
                             </div>
 
                             <div class="step">
                                 <span class="step-number">4</span>
-                                <span class="step-title">AI Audio Generation</span>
+                                <span class="step-title">AI Generation as Pattern-Response</span>
                                 <div class="step-content">
-                                    <p>Stable Audio generates a soundscape from the prompt, creating an ambient piece that embodies the punctuation mark's temporal, spatial, and emotional character.</p>
+                                    <p>Stable Audio generates a soundscape from the prompt. The output represents the AI's pattern-based processing of my words about my feelings about a punctuation mark—a chain of translations.</p>
                                 </div>
                             </div>
 
                             <div class="step">
                                 <span class="step-number">5</span>
-                                <span class="step-title">Human Response & Reflection</span>
+                                <span class="step-title">Comparative Analysis</span>
                                 <div class="step-content">
-                                    <p>I listen to the AI output and document my response: what surprised me, what aligned with my expectations, what the collaboration revealed about the punctuation mark's character.</p>
+                                    <p>I document my response to the AI output: what surprised me, what aligned, what diverged. These observations become the primary findings—evidence about how human and machine process the same abstract markers differently.</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>The Proximity Sensor as Intensity Variable</h4>
+                        <p>A proximity sensor embedded in the physical installation introduces intensity modulation into the encounter. Move closer and the sound increases in presence, urgency, volume. Step back and it fades. This tests whether intensity functions similarly as a variable in both human experience and machine output—whether "more" and "less" produce recognisably parallel effects across both modes of processing.</p>
                     </div>
 
                     <div class="two-column">
@@ -1405,7 +1474,7 @@
                     <h2 class="section-title">Punctuation Characters</h2>
 
                     <div class="introduction">
-                        <p>Each punctuation mark is treated as a character with distinct personality traits. These profiles inform the collage creation and provide a framework for the audio prompts.</p>
+                        <p>Each punctuation mark is treated as an entity with distinct functional qualities. These profiles emerge from how the marks operate in language and inform both the collage creation and the interpretive framework for analysis.</p>
                     </div>
 
                     <div class="character-grid">
@@ -1481,11 +1550,11 @@
 
                         <div class="human-input">
                             <div class="human-input-header">
-                                <h4>My Initial Reflection</h4>
+                                <h4>Embodied Reflection</h4>
                                 <span class="human-badge">Human</span>
                             </div>
                             <div class="human-input-body">
-                                <p class="response-placeholder">[Your reflection on the period before creating the collage—what does this mark mean to you? What qualities do you want to capture?]</p>
+                                <p class="response-placeholder">[Your reflection on the period before creating the collage. Where do you feel it in your body? What associations arise? What does ending feel like?]</p>
                             </div>
                         </div>
 
@@ -1495,7 +1564,7 @@
                                 <div class="collage-placeholder-icon">🎨</div>
                                 <div class="collage-placeholder-text">Your collage image here</div>
                             </div>
-                            <p class="collage-caption">[Caption describing your collage]</p>
+                            <p class="collage-caption">[Caption describing your collage—materials, choices, what you were trying to capture]</p>
                         </div>
 
                         <div class="palette-container">
@@ -1527,7 +1596,7 @@
                                 </svg>
                             </div>
                             <div class="proximity-text">
-                                <p><strong>Physical-Digital Bridge:</strong> A proximity sensor embedded in the physical installation detects when you approach. Move closer to the object and the soundscape activates—the period's finality made audible through presence.</p>
+                                <p><strong>Intensity Variable:</strong> As you approach the installation, the period's sonic character intensifies—testing whether increased presence produces parallel effects in your experience and the machine's output. Does finality scale with proximity? Does the feeling of "ending" have degrees?</p>
                             </div>
                         </div>
 
@@ -1563,32 +1632,32 @@
 
                         <div class="human-response">
                             <div class="human-response-header">
-                                <h4>My Response to the AI Output</h4>
+                                <h4>Comparative Response</h4>
                                 <span class="human-badge">Human</span>
                             </div>
                             <div class="human-response-body">
-                                <p class="response-placeholder">[Your reflection after hearing the AI-generated soundscape. What surprised you? What aligned with your expectations? What did the collaboration reveal about the period's character that you hadn't considered?]</p>
+                                <p class="response-placeholder">[Your reflection after hearing the AI-generated soundscape. What converged with your embodied sense of the period? What diverged? What did the gap reveal about how human and machine process this mark differently?]</p>
                             </div>
                         </div>
 
-                        <button class="collapsible">Analysis & Observations</button>
+                        <button class="collapsible">Observations & Evidence</button>
                         <div class="collapsible-content">
                             <div class="analysis-grid">
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">Observation 1</h5>
-                                    <p>[Your analysis point]</p>
+                                    <h5 class="analysis-title">Convergence</h5>
+                                    <p>[Where did your interpretation and the AI's output align? What does this suggest about the mark's structural qualities?]</p>
                                 </div>
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">Observation 2</h5>
-                                    <p>[Your analysis point]</p>
+                                    <h5 class="analysis-title">Divergence</h5>
+                                    <p>[Where did they differ? What might this reveal about embodiment vs. pattern-processing?]</p>
                                 </div>
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">Observation 3</h5>
-                                    <p>[Your analysis point]</p>
+                                    <h5 class="analysis-title">Surprise</h5>
+                                    <p>[What did the AI produce that you hadn't anticipated? What does this suggest about machine "interpretation"?]</p>
                                 </div>
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">Observation 4</h5>
-                                    <p>[Your analysis point]</p>
+                                    <h5 class="analysis-title">Intensity Response</h5>
+                                    <p>[How did the proximity-based intensity modulation affect your experience? Did "more" and "less" work as expected?]</p>
                                 </div>
                             </div>
                         </div>
@@ -1612,11 +1681,11 @@
 
                         <div class="human-input">
                             <div class="human-input-header">
-                                <h4>My Initial Reflection</h4>
+                                <h4>Embodied Reflection</h4>
                                 <span class="human-badge">Human</span>
                             </div>
                             <div class="human-input-body">
-                                <p class="response-placeholder">[Your reflection on the ellipsis before creating the collage—what does this mark mean to you? What qualities do you want to capture?]</p>
+                                <p class="response-placeholder">[Your reflection on the ellipsis. What does suspension feel like? Where do you feel incompleteness in your body? What associations arise with trailing off?]</p>
                             </div>
                         </div>
 
@@ -1658,7 +1727,7 @@
                                 </svg>
                             </div>
                             <div class="proximity-text">
-                                <p><strong>Physical-Digital Bridge:</strong> Approach the object and the soundscape begins... but step back and it trails off, never quite completing. The ellipsis embodied in interaction.</p>
+                                <p><strong>Intensity Variable:</strong> Approach the installation and the ellipsis begins to sound... but step back and it trails off, never completing. Does the machine's fade match the feeling of human hesitation? Does proximity make suspension more or less bearable?</p>
                             </div>
                         </div>
 
@@ -1694,7 +1763,7 @@
 
                         <div class="human-response">
                             <div class="human-response-header">
-                                <h4>My Response to the AI Output</h4>
+                                <h4>Comparative Response</h4>
                                 <span class="human-badge">Human</span>
                             </div>
                             <div class="human-response-body">
@@ -1702,24 +1771,24 @@
                             </div>
                         </div>
 
-                        <button class="collapsible">Analysis & Observations</button>
+                        <button class="collapsible">Observations & Evidence</button>
                         <div class="collapsible-content">
                             <div class="analysis-grid">
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">Observation 1</h5>
-                                    <p>[Your analysis point]</p>
+                                    <h5 class="analysis-title">Convergence</h5>
+                                    <p>[Your observation]</p>
                                 </div>
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">Observation 2</h5>
-                                    <p>[Your analysis point]</p>
+                                    <h5 class="analysis-title">Divergence</h5>
+                                    <p>[Your observation]</p>
                                 </div>
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">Observation 3</h5>
-                                    <p>[Your analysis point]</p>
+                                    <h5 class="analysis-title">Surprise</h5>
+                                    <p>[Your observation]</p>
                                 </div>
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">Observation 4</h5>
-                                    <p>[Your analysis point]</p>
+                                    <h5 class="analysis-title">Intensity Response</h5>
+                                    <p>[Your observation]</p>
                                 </div>
                             </div>
                         </div>
@@ -1774,39 +1843,54 @@
 
             <hr class="dotted-divider">
 
-            <!-- REFLECTION -->
-            <section id="reflection">
+            <!-- FINDINGS -->
+            <section id="findings">
                 <div class="section-content">
-                    <h2 class="section-title">Reflections on Punctuation & AI</h2>
+                    <h2 class="section-title">Emerging Findings</h2>
 
                     <div class="introduction">
-                        <p>[This section will grow as you complete more explorations—a space for broader reflections on the project as a whole, patterns you notice across different punctuation marks, and insights about human-AI collaboration through this process.]</p>
+                        <p>This section documents patterns and insights as they emerge across the explorations. It is the primary research output—evidence gathered through the practice of making, generating, and comparing.</p>
+                    </div>
+
+                    <div class="findings-box">
+                        <h4>On Pattern and Constraint</h4>
+                        <p>[As you complete explorations, document what you learn about how punctuation marks create constraints in both human and machine processing. Do periods produce closure effects in AI output? Do ellipses resist resolution?]</p>
+                    </div>
+
+                    <div class="findings-box">
+                        <h4>On Convergence and Divergence</h4>
+                        <p>[Track where human and machine interpretations align and where they diverge. What do the convergence points suggest about structural qualities that transcend processing mode? What do the divergences reveal about embodiment?]</p>
+                    </div>
+
+                    <div class="findings-box">
+                        <h4>On Intensity as Variable</h4>
+                        <p>[Document how proximity-based intensity modulation affects the encounter. Does "more presence" produce parallel effects in human experience and machine output? Is intensity a shared variable across both modes of processing?]</p>
                     </div>
 
                     <div class="insight-grid">
                         <div class="insight-card">
                             <h5 class="insight-title">Visual → Sonic Translation</h5>
-                            <p>What survives the translation from collage to soundscape? What gets lost? What emerges that wasn't visible in the original?</p>
+                            <p>What survives the translation from collage to soundscape? What gets lost? What emerges that wasn't visible in the original? The gap itself is data.</p>
                         </div>
 
                         <div class="insight-card">
                             <h5 class="insight-title">Prompt as Interpretation</h5>
-                            <p>The audio prompt itself is an act of interpretation—my reading of the collage, translated into instructions for the AI. The final audio is doubly mediated.</p>
+                            <p>The audio prompt is an act of interpretation—my reading of the collage, translated into instructions. The final audio is doubly mediated. What does each layer of translation add or remove?</p>
                         </div>
 
                         <div class="insight-card">
-                            <h5 class="insight-title">Proximity as Presence</h5>
-                            <p>The proximity sensor transforms passive viewing into active encounter. Your body's movement becomes part of the punctuation's expression.</p>
+                            <h5 class="insight-title">Embodiment vs. Pattern</h5>
+                            <p>My collages emerge from bodily sensation—how a period feels when I write one. The AI's output emerges from statistical patterns. Are these fundamentally different, or different routes to similar functional structures?</p>
                         </div>
 
                         <div class="insight-card">
-                            <h5 class="insight-title">Dialogue Structure</h5>
-                            <p>The project creates a three-part conversation: my initial reflection, the AI's sonic interpretation, and my response. Each informs the next exploration.</p>
+                            <h5 class="insight-title">The Question of Felt Structure</h5>
+                            <p>If the AI's output produces recognisably "final" sounds for a period, recognisably "suspended" sounds for an ellipsis—without embodiment—what does that suggest about the relationship between pattern and feeling?</p>
                         </div>
                     </div>
 
                     <div class="quote">
-                        "The punctuation marks in any sentence carry the breath and pause and emphasis of the voice that wrote them. This project asks: can a machine hear that breath? And can it breathe it back to us as sound?"
+                        "The question isn't whether machines feel what we feel. The question is whether pattern-based processing might constitute its own form of felt structure—constraints and intensities that shape output the way emotion shapes ours, even if the underlying mechanism is entirely different."
                     </div>
                 </div>
             </section>
@@ -1820,12 +1904,12 @@
                 <a href="#method">Method</a>
                 <a href="#characters">Characters</a>
                 <a href="#explorations">Explorations</a>
-                <a href="#reflection">Reflections</a>
+                <a href="#findings">Findings</a>
             </div>
             <p><strong>The Secret Lives of Punctuation</strong></p>
-            <p>A Human-AI Collaborative Research Project</p>
+            <p>Investigating Pattern, Constraint, and Felt Structure in Human-AI Processing</p>
             <p>Visual: Hand-made Collages | Audio: Stable Audio | Interaction: Proximity Sensor</p>
-            <p>© 2025 — Exploring how meaning lives in the smallest marks</p>
+            <p>© 2025</p>
         </footer>
 
     </div>
