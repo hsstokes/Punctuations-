@@ -143,7 +143,7 @@
         .hero-gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
+            gap: 8px;
             margin-bottom: 25px;
         }
 
@@ -151,38 +151,42 @@
             position: relative;
             overflow: hidden;
             border: 2px dotted #2980b9;
-            border-radius: 15px;
-            background-color: #f5e9c9;
+            border-radius: 12px;
+            background-color: #2c3e50;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             aspect-ratio: 1;
         }
 
         .hero-gallery-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(44, 62, 80, 0.4);
         }
 
         .hero-gallery-item img {
             width: 100%; height: 100%;
             object-fit: cover;
             display: block;
-            border-radius: 13px;
+            border-radius: 10px;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
         }
+
+        .hero-gallery-item:hover img { opacity: 1; }
 
         .hero-gallery-label {
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(44, 62, 80, 0.9));
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
             color: #f9f2e2;
-            padding: 25px 8px 8px;
-            font-size: 0.85em;
+            padding: 30px 8px 10px;
+            font-size: 0.8em;
             font-weight: bold;
             text-align: center;
-            border-radius: 0 0 13px 13px;
+            border-radius: 0 0 10px 10px;
         }
 
-        .hero-gallery-symbol { font-size: 1.8em; display: block; margin-bottom: 2px; }
+        .hero-gallery-symbol { font-size: 2em; display: block; margin-bottom: 2px; line-height: 1; }
 
         @media (max-width: 600px) { .hero-gallery { grid-template-columns: repeat(2, 1fr); } }
 
@@ -445,39 +449,54 @@
             background-color: #f9f2e2;
             border: 2px dotted #2980b9;
             border-radius: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             overflow: hidden;
         }
 
         .punctuation-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 20px;
-            background-color: #f5e9c9;
-            border-bottom: 2px dotted #2980b9;
+            gap: 20px;
+            padding: 25px 25px 20px;
+            background-color: #2c3e50;
             flex-wrap: wrap;
         }
 
         .punctuation-symbol {
-            font-size: 3em;
-            width: 80px; height: 80px;
+            font-size: 3.5em;
+            width: 90px; height: 90px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #3498db;
-            color: white;
+            background-color: #f9f2e2;
+            color: #2c3e50;
             border-radius: 50%;
             flex-shrink: 0;
+            font-weight: bold;
         }
 
         .punctuation-info { flex: 1; min-width: 200px; }
 
-        .punctuation-name { font-size: 1.5em; font-weight: bold; color: #2c3e50; margin: 0 0 5px 0; border: none; background: none; padding: 0; }
-        .punctuation-trait { font-size: 1em; color: #2c3e50; margin: 0 0 8px 0; border: none; background: none; padding: 0; }
-        .punctuation-category { display: inline-block; background-color: #f9f2e2; color: #2c3e50; padding: 4px 12px; border-radius: 15px; font-size: 0.85em; border: 1px solid #2980b9; }
+        .punctuation-name { font-size: 1.8em; font-weight: bold; color: #f9f2e2; margin: 0 0 5px 0; border: none; background: none; padding: 0; }
+        .punctuation-trait { font-size: 0.9em; color: #aaa; margin: 0 0 8px 0; border: none; background: none; padding: 0; letter-spacing: 0.1em; text-transform: uppercase; }
+        .punctuation-category { display: inline-block; background-color: transparent; color: #3498db; padding: 4px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #3498db; }
 
-        .punctuation-body { padding: 20px; }
+        .punctuation-body { padding: 0; }
+        .punctuation-body-inner { padding: 20px; }
+
+        /* SIDE BY SIDE: object + claude output */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 0;
+        }
+
+        .split-layout .collage-display { border-radius: 0; margin: 0; }
+
+        @media (max-width: 650px) {
+            .split-layout { grid-template-columns: 1fr; }
+        }
 
         /* HUMAN INPUT SECTION */
         .human-input {
@@ -501,8 +520,8 @@
 
         .human-badge { background-color: #f9f2e2; color: #e74c3c; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
 
-        .human-input-body { padding: 20px; }
-        .human-input-body p { border: none; background: none; padding: 0; margin-bottom: 12px; font-style: italic; }
+        .human-input-body { padding: 15px 20px; }
+        .human-input-body p { border: none; background: none; padding: 0; margin-bottom: 8px; font-style: italic; font-size: 12px; color: #555; }
         .human-input-body p:last-child { margin-bottom: 0; }
 
         /* PALETTE */
@@ -530,36 +549,66 @@
         .constraint-label { font-weight: bold; color: #2c3e50; }
         .constraint-text { color: #2c3e50; font-style: italic; }
 
-        /* COLLAGE DISPLAY */
+        /* OBJECT DISPLAY - visual first */
         .collage-display {
-            background-color: #f5e9c9;
-            border: 2px dotted #2980b9;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
+            background-color: #1a1a1a;
+            border: none;
+            border-radius: 12px;
+            padding: 0;
+            margin: 25px 0;
             text-align: center;
+            overflow: hidden;
+            position: relative;
         }
 
         .collage-placeholder {
-            width: 100%; max-width: 400px; height: 300px;
-            border: 3px dashed #2980b9;
-            border-radius: 10px;
-            margin: 0 auto 15px auto;
+            width: 100%;
+            height: 420px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #f9f2e2;
-            color: #2c3e50;
+            background-color: #1a1a1a;
+            color: #666;
         }
 
-        .collage-placeholder-icon { font-size: 3em; margin-bottom: 10px; opacity: 0.5; }
-        .collage-placeholder-text { font-size: 0.9em; opacity: 0.7; }
+        .collage-placeholder-icon { font-size: 4em; margin-bottom: 15px; opacity: 0.3; }
+        .collage-placeholder-text { font-size: 0.9em; opacity: 0.4; color: #999; letter-spacing: 0.1em; }
 
-        .collage-display img { max-width: 100%; height: auto; border: 2px dotted #2980b9; border-radius: 10px; margin-bottom: 15px; background-color: #f9f2e2; padding: 10px; }
+        .collage-display img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+            margin: 0;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+        }
 
-        .collage-caption { font-size: 0.95em; color: #2c3e50; font-style: italic; margin: 0; padding: 0; border: none; background: none; }
-        .collage-label { font-weight: bold; color: #3498db; margin-bottom: 10px; font-size: 1.1em; text-decoration: underline; text-decoration-style: dotted; }
+        .collage-caption {
+            font-size: 0.85em;
+            color: #999;
+            font-style: italic;
+            margin: 0;
+            padding: 12px 20px;
+            background: #1a1a1a;
+            border: none;
+            text-align: left;
+        }
+
+        .collage-label {
+            font-weight: bold;
+            color: #f9f2e2;
+            padding: 12px 20px 0;
+            font-size: 0.8em;
+            text-decoration: none;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            display: block;
+            text-align: left;
+            background: #1a1a1a;
+        }
 
         /* CLAUDE OUTPUT SECTION */
         .ai-output {
@@ -1116,6 +1165,17 @@ Output the audio prompt only. Nothing else.</div>
 
                     <div class="punctuation-body">
 
+                        <div class="collage-display">
+                            <div class="collage-label">Physical Object</div>
+                            <div class="collage-placeholder">
+                                <div class="collage-placeholder-icon">○</div>
+                                <div class="collage-placeholder-text">Image of finished piece here</div>
+                            </div>
+                            <p class="collage-caption">[Caption describing the object — materials, decisions, what the making process revealed]</p>
+                        </div>
+
+                        <div class="punctuation-body-inner">
+
                         <div class="human-input">
                             <div class="human-input-header">
                                 <h4>Embodied Reflection</h4>
@@ -1124,15 +1184,6 @@ Output the audio prompt only. Nothing else.</div>
                             <div class="human-input-body">
                                 <p class="response-placeholder">[Your reflection on the full stop before creating the collage. Where do you feel it in your body? What associations arise? What does ending feel like — not as a concept, but as a sensation?]</p>
                             </div>
-                        </div>
-
-                        <div class="collage-display">
-                            <div class="collage-label">Physical Object</div>
-                            <div class="collage-placeholder">
-                                <div class="collage-placeholder-icon">○</div>
-                                <div class="collage-placeholder-text">Image of finished piece here</div>
-                            </div>
-                            <p class="collage-caption">[Caption describing the object — materials, decisions, what the making process revealed]</p>
                         </div>
 
                         <div class="palette-container">
@@ -1210,6 +1261,8 @@ Output the audio prompt only. Nothing else.</div>
                                 </div>
                             </div>
                         </div>
+
+                        </div><!-- end punctuation-body-inner -->
                     </div>
                 </div>
 
@@ -1228,6 +1281,17 @@ Output the audio prompt only. Nothing else.</div>
 
                     <div class="punctuation-body">
 
+                        <div class="collage-display">
+                            <div class="collage-label">Physical Object</div>
+                            <div class="collage-placeholder">
+                                <div class="collage-placeholder-icon">···</div>
+                                <div class="collage-placeholder-text">Image of finished piece here</div>
+                            </div>
+                            <p class="collage-caption">[Caption describing the object]</p>
+                        </div>
+
+                        <div class="punctuation-body-inner">
+
                         <div class="human-input">
                             <div class="human-input-header">
                                 <h4>Embodied Reflection</h4>
@@ -1236,15 +1300,6 @@ Output the audio prompt only. Nothing else.</div>
                             <div class="human-input-body">
                                 <p class="response-placeholder">[Your reflection on the ellipsis. What does suspension feel like in the body? Where does incompleteness live — in the chest, the throat, the hands? What associations arise with the inability to finish?]</p>
                             </div>
-                        </div>
-
-                        <div class="collage-display">
-                            <div class="collage-label">Physical Object</div>
-                            <div class="collage-placeholder">
-                                <div class="collage-placeholder-icon">···</div>
-                                <div class="collage-placeholder-text">Image of finished piece here</div>
-                            </div>
-                            <p class="collage-caption">[Caption describing the object]</p>
                         </div>
 
                         <div class="palette-container">
@@ -1310,6 +1365,8 @@ Output the audio prompt only. Nothing else.</div>
                                 <div class="analysis-card"><h5 class="analysis-title">The Encounter</h5><p>[Your observation]</p></div>
                             </div>
                         </div>
+
+                        </div><!-- end punctuation-body-inner -->
                     </div>
                 </div>
 
