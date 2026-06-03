@@ -12,8 +12,6 @@
             --paper: #f2ede8;
             --paper-mid: #e8e2da;
             --grid: #ddd8d2;
-            --accent: #1a1a1a;
-            --accent-light: #f0ece6;
             --mid: #8a8580;
             --warm-border: #ccc7c0;
         }
@@ -47,81 +45,58 @@
         }
 
         .page-container {
-            max-width: 880px;
             width: 100%;
             margin: 0 auto;
             border: none;
-            border-radius: 0;
             padding: 30px 25px;
             background-color: var(--paper);
             position: relative;
             overflow: hidden;
         }
 
-        .page-container:before { display: none; }
-
-        h1, h2, h3, h4 { color: var(--ink); margin-bottom: 15px; }
+        h1, h2, h3, h4 { color: var(--ink); margin-bottom: 15px; word-wrap: break-word; }
 
         h1 {
             font-family: 'DM Serif Display', serif;
             font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 400;
-            text-align: center;
+            text-align: left;
             border: none;
             border-bottom: 2px solid var(--ink);
-            border-radius: 0;
-            background: none;
-            box-shadow: none;
             padding: 0 0 20px;
-            margin-bottom: 25px;
+            margin-bottom: 8px;
             line-height: 1.15;
+            background: none;
         }
-
-        h1 em { font-style: italic; color: var(--mid); }
 
         h2 {
             font-family: 'DM Serif Display', serif;
-            font-size: 1.6em;
+            font-size: 1.5em;
             font-weight: 400;
             text-align: left;
             border: none;
-            border-radius: 0;
             background: none;
-            box-shadow: none;
             padding: 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
             margin: 2rem 0 1rem;
-        }
-
-        h2::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 24px;
-            background: var(--ink);
-            flex-shrink: 0;
+            line-height: 1.2;
         }
 
         h3 {
             font-family: 'Space Mono', monospace;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            text-align: left;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            border: none;
-            border-radius: 0;
-            background: none;
-            padding: 0;
             color: var(--mid);
             margin: 1.5rem 0 0.8rem;
+            border: none;
+            background: none;
+            padding: 0;
         }
 
         h4 {
             font-family: 'Space Mono', monospace;
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             font-weight: 700;
             margin: 0 0 10px 0;
             text-transform: uppercase;
@@ -130,58 +105,36 @@
 
         p {
             font-family: 'IBM Plex Mono', monospace;
-            text-align: left;
             font-size: 0.88rem;
             color: var(--ink);
             background: none;
             border: none;
-            border-radius: 0;
             padding: 0;
             margin: 0 0 1em;
             line-height: 1.8;
+            word-wrap: break-word;
         }
 
-        a { color: var(--ink); text-decoration: underline; transition: all 0.2s ease; }
+        a { color: var(--ink); text-decoration: underline; transition: opacity 0.2s; }
         a:hover { opacity: 0.6; }
 
         /* HERO */
-        .hero-section { margin-bottom: 40px; }
-
         .hero-title-bar {
-            text-align: left;
-            padding: 40px 0 30px;
-            background: none;
-            border: none;
-            border-radius: 0;
-            margin-bottom: 25px;
+            padding: 30px 0 25px;
             border-bottom: 1px solid var(--warm-border);
-        }
-
-        .hero-title {
-            font-family: 'DM Serif Display', serif;
-            font-size: clamp(2.2rem, 6vw, 3.5rem);
-            font-weight: 400;
-            margin: 0 0 12px 0;
-            color: var(--ink);
-            border: none;
-            background: none;
-            box-shadow: none;
-            line-height: 1.1;
+            margin-bottom: 25px;
         }
 
         .hero-subtitle {
             font-family: 'Space Mono', monospace;
-            font-size: 0.72rem;
+            font-size: 0.68rem;
             color: var(--mid);
-            margin: 0;
+            margin: 8px 0 0;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            border: none;
-            background: none;
-            padding: 0;
         }
 
-        /* HERO GALLERY */
+        /* GALLERY GRID */
         .hero-gallery {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -192,26 +145,22 @@
         .hero-gallery-item {
             position: relative;
             overflow: hidden;
-            border: 2px dotted #2980b9;
-            border-radius: 12px;
-            background-color: #2c3e50;
+            border: 1px solid var(--warm-border);
+            border-radius: 3px;
+            background: var(--ink);
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.2s ease;
             aspect-ratio: 1;
         }
 
-        .hero-gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(44, 62, 80, 0.4);
-        }
+        .hero-gallery-item:hover { transform: translateY(-3px); }
 
         .hero-gallery-item img {
             width: 100%; height: 100%;
             object-fit: cover;
             display: block;
-            border-radius: 10px;
-            opacity: 0.85;
-            transition: opacity 0.3s ease;
+            opacity: 0.8;
+            transition: opacity 0.2s;
         }
 
         .hero-gallery-item:hover img { opacity: 1; }
@@ -220,35 +169,37 @@
             position: absolute;
             bottom: 0; left: 0; right: 0;
             background: linear-gradient(transparent, rgba(0,0,0,0.85));
-            color: #f9f2e2;
-            padding: 30px 8px 10px;
-            font-size: 0.8em;
-            font-weight: bold;
+            color: var(--paper);
+            padding: 24px 8px 8px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
             text-align: center;
-            border-radius: 0 0 10px 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
-        .hero-gallery-symbol { font-size: 2em; display: block; margin-bottom: 2px; line-height: 1; }
+        .hero-gallery-symbol { font-family: 'DM Serif Display', serif; font-size: 1.8em; display: block; margin-bottom: 2px; line-height: 1; }
 
         @media (max-width: 600px) { .hero-gallery { grid-template-columns: repeat(2, 1fr); } }
 
-        .hero-statement {
-            background: none;
+        /* ARTIST STATEMENT */
+        .artist-statement {
             border: none;
             border-left: 3px solid var(--ink);
-            border-radius: 0;
-            padding: 12px 0 12px 20px;
-            text-align: left;
-            margin-top: 25px;
+            padding: 14px 0 14px 20px;
+            margin: 25px 0;
         }
 
-        .hero-statement p {
-            border: none; background: none; padding: 0; margin: 0;
+        .artist-statement p {
             font-family: 'DM Serif Display', serif;
-            font-size: 1.1em;
+            font-size: 1.05em;
             font-style: italic;
             color: var(--ink);
-            line-height: 1.6;
+            line-height: 1.75;
+            margin: 0;
+            border: none;
+            background: none;
+            padding: 0;
         }
 
         /* NAVIGATION */
@@ -257,12 +208,9 @@
             justify-content: flex-start;
             gap: 6px;
             margin: 20px 0;
-            padding: 12px 0;
-            background: none;
-            border: none;
+            padding: 10px 0;
             border-top: 1px solid var(--warm-border);
             border-bottom: 1px solid var(--warm-border);
-            border-radius: 0;
             flex-wrap: wrap;
             position: sticky;
             top: 0;
@@ -273,30 +221,24 @@
         .nav-button {
             background: none;
             border: 1px solid var(--warm-border);
-            border-radius: 3px;
-            box-shadow: none;
-            padding: 5px 12px;
+            border-radius: 2px;
+            padding: 4px 10px;
             cursor: pointer;
             font-family: 'Space Mono', monospace;
-            font-size: 0.68rem;
+            font-size: 0.62rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
             color: var(--mid);
-            text-decoration: none;
         }
 
-        .nav-button:hover { border-color: var(--ink); color: var(--ink); transform: none; text-decoration: none; }
+        .nav-button:hover { border-color: var(--ink); color: var(--ink); }
         .nav-button.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
         /* SECTIONS */
         .section-content {
-            background: none;
-            border: none;
             border-bottom: 1px solid var(--warm-border);
-            border-radius: 0;
             padding: 25px 0;
-            margin-bottom: 0;
         }
 
         .section-title {
@@ -305,44 +247,59 @@
             font-weight: 400;
             margin-bottom: 20px;
             color: var(--ink);
-            background: none;
-            border: none;
             border-bottom: 1px solid var(--warm-border);
-            border-radius: 0;
             padding: 0 0 12px;
-            text-align: left;
+            background: none;
         }
 
         .introduction {
-            background: none;
-            border: none;
             border-left: 3px solid var(--warm-border);
-            border-radius: 0;
             padding: 0 0 0 20px;
             margin-bottom: 25px;
         }
 
-        .introduction p { border: none; background: none; padding: 0; margin-bottom: 1em; }
+        .introduction p { margin-bottom: 1em; }
         .introduction p:last-child { margin-bottom: 0; }
 
-        /* HIGHLIGHT BOX */
+        /* HIGHLIGHT / QUOTE BOXES */
         .highlight-box {
             background: var(--paper-mid);
-            border: none;
             border-left: 3px solid var(--ink);
-            border-radius: 0;
             padding: 14px 18px;
             margin: 20px 0;
         }
 
-        .highlight-box h4 { margin: 0 0 8px 0; border-bottom: 1px solid var(--warm-border); padding-bottom: 8px; font-style: normal; }
-        .highlight-box p { border: none; background: none; padding: 0; margin: 0; }
+        .highlight-box h4 { margin: 0 0 8px 0; border-bottom: 1px solid var(--warm-border); padding-bottom: 8px; }
+        .highlight-box p { margin: 0; }
+
+        .quote {
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            font-size: 1.0em;
+            padding: 14px 0 14px 20px;
+            border-left: 3px solid var(--ink);
+            margin: 20px 0;
+            color: var(--ink);
+            line-height: 1.75;
+        }
+
+        /* RESEARCH QUESTIONS */
+        .research-questions {
+            background: var(--paper-mid);
+            border-left: 3px solid var(--ink);
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+
+        .research-questions h4 { margin: 0 0 12px 0; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .research-questions ul { margin: 0; padding-left: 18px; }
+        .research-questions li { margin-bottom: 8px; line-height: 1.7; font-size: 0.88rem; }
 
         /* WORKFLOW */
         .workflow-box {
             background: white;
             border: 1px solid var(--warm-border);
-            border-radius: 4px;
+            border-radius: 3px;
             margin-bottom: 25px;
             overflow: hidden;
         }
@@ -351,34 +308,24 @@
             background: var(--ink);
             color: var(--paper);
             padding: 12px 20px;
-            text-align: left;
-            border-radius: 0;
         }
 
-        .workflow-header h4 { margin: 0; color: var(--paper); font-family: 'Space Mono', monospace; letter-spacing: 0.1em; }
+        .workflow-header h4 { margin: 0; color: var(--paper); letter-spacing: 0.1em; }
 
-        .workflow-steps {
-            padding: 15px 20px;
-            background: white;
-        }
+        .workflow-steps { padding: 0 20px; background: white; }
 
         .step {
             display: flex;
             align-items: flex-start;
             flex-wrap: wrap;
             gap: 5px 14px;
-            background: none;
-            padding: 14px 0;
-            margin-bottom: 0;
-            border: none;
+            padding: 16px 0;
             border-bottom: 1px solid var(--grid);
-            border-radius: 0;
         }
 
-        .step:last-child { border-bottom: none; padding-bottom: 0; }
+        .step:last-child { border-bottom: none; }
 
         .step-number {
-            display: inline-block;
             width: 28px; height: 28px;
             background: var(--ink);
             color: var(--paper);
@@ -387,19 +334,41 @@
             line-height: 28px;
             font-weight: 700;
             font-family: 'Space Mono', monospace;
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             flex-shrink: 0;
         }
 
-        .step-title { font-weight: 700; color: var(--ink); font-size: 0.82rem; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.06em; }
+        .step-title { font-weight: 700; color: var(--ink); font-size: 0.78rem; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.06em; align-self: center; }
 
-        .step-content { width: 100%; padding-left: 42px; margin-top: 6px; }
-        .step-content p { border: none; background: none; padding: 0; margin: 0 0 6px 0; }
+        .step-content { width: 100%; padding-left: 42px; margin-top: 4px; }
+        .step-content p { margin: 0 0 6px 0; font-size: 0.85rem; }
+
+        /* DATA STATS */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .data-card {
+            background: white;
+            border: 1px solid var(--warm-border);
+            border-radius: 3px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .data-mark { font-family: 'DM Serif Display', serif; font-size: 2em; color: var(--ink); margin-bottom: 4px; }
+        .data-count { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 0.9rem; color: var(--ink); }
+        .data-name { font-family: 'Space Mono', monospace; font-size: 0.58rem; color: var(--mid); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+
+        @media (min-width: 600px) { .data-grid { grid-template-columns: repeat(6, 1fr); } }
 
         /* CHARACTER CARDS */
         .character-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             gap: 10px;
             margin-top: 20px;
         }
@@ -408,16 +377,16 @@
             background: white;
             border: 1px solid var(--warm-border);
             border-radius: 3px;
-            padding: 18px 12px;
+            padding: 16px 12px;
             text-align: center;
-            transition: all 0.2s ease;
             cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .character-card:hover { border-color: var(--ink); transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
-        .character-symbol { font-family: 'DM Serif Display', serif; font-size: 2.8em; margin-bottom: 8px; color: var(--ink); }
-        .character-name { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 0.72rem; color: var(--ink); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
-        .character-trait { font-size: 0.72rem; color: var(--paper); background: var(--ink); padding: 3px 10px; border-radius: 2px; display: inline-block; font-family: 'Space Mono', monospace; }
+        .character-card:hover { border-color: var(--ink); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+        .character-symbol { font-family: 'DM Serif Display', serif; font-size: 2.5em; margin-bottom: 8px; color: var(--ink); }
+        .character-name { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 0.65rem; color: var(--ink); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+        .character-trait { font-size: 0.65rem; color: var(--paper); background: var(--ink); padding: 2px 8px; border-radius: 2px; display: inline-block; font-family: 'Space Mono', monospace; }
 
         /* COLLAPSIBLE */
         .collapsible {
@@ -427,26 +396,24 @@
             width: 100%;
             border: none;
             border-bottom: 1px solid var(--warm-border);
-            border-radius: 0;
             text-align: left;
             outline: none;
-            font-size: 0.78rem;
+            font-size: 0.7rem;
             font-family: 'Space Mono', monospace;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             margin-bottom: 0;
-            transition: all 0.2s ease;
+            transition: color 0.2s;
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: var(--mid);
         }
 
-        .collapsible:after { content: '▶'; font-size: 9px; color: var(--mid); transition: transform 0.3s ease; }
+        .collapsible:after { content: '▶'; font-size: 8px; color: var(--mid); transition: transform 0.3s; }
         .collapsible.active:after { transform: rotate(90deg); }
-        .collapsible:hover { color: var(--ink); }
-        .collapsible.active { color: var(--ink); border-bottom: none; margin-bottom: 0; background: none; }
+        .collapsible:hover, .collapsible.active { color: var(--ink); }
 
         .collapsible-content {
             padding: 0;
@@ -454,119 +421,117 @@
             overflow: hidden;
             transition: max-height 0.3s ease-out;
             background: var(--paper-mid);
-            border: none;
-            border-radius: 0 0 3px 3px;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .collapsible-content.open { max-height: 5000px; }
         .collapsible-content > * { padding: 15px; }
 
-        /* QUOTE */
-        .quote {
-            font-family: 'DM Serif Display', serif;
-            font-style: italic;
-            font-size: 1.05em;
-            padding: 16px 0 16px 20px;
-            background: none;
-            border-left: 3px solid var(--ink);
-            border-radius: 0;
-            margin: 20px 0;
-            color: var(--ink);
-            line-height: 1.7;
-        }
-
-        /* TWO COLUMN */
-        .two-column { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-        .column { width: 100%; }
-
-        @media (min-width: 600px) {
-            .two-column { flex-direction: row; }
-            .column { flex: 1; min-width: 250px; }
-        }
-
         /* INSIGHT GRID */
-        .insight-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 15px; }
+        .insight-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 15px; }
 
-        .insight-card {
-            background: white;
-            padding: 16px;
-            border: 1px solid var(--warm-border);
-            border-radius: 3px;
-        }
-
-        .insight-title { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--ink); margin: 0 0 8px 0; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; }
-        .insight-card p { border: none; background: none; padding: 0; margin: 0; font-size: 0.82rem; }
+        .insight-card { background: white; padding: 16px; border: 1px solid var(--warm-border); border-radius: 3px; }
+        .insight-title { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--ink); margin: 0 0 8px 0; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; display: block; }
+        .insight-card p { margin: 0; font-size: 0.82rem; }
 
         @media (min-width: 600px) { .insight-grid { grid-template-columns: repeat(2, 1fr); } }
 
-        /* DIVIDER */
-        .dotted-divider { border: none; border-top: 1px solid var(--warm-border); height: 0; width: 100%; margin: 35px 0; }
-
         /* PUNCTUATION EXPLORATION CARD */
         .punctuation-exploration {
-            background-color: #f9f2e2;
-            border: 2px dotted #2980b9;
-            border-radius: 15px;
-            margin-bottom: 40px;
+            border: 1px solid var(--warm-border);
+            border-radius: 3px;
+            margin-bottom: 30px;
             overflow: hidden;
+            background: var(--paper);
         }
 
         .punctuation-header {
             display: flex;
             align-items: center;
             gap: 20px;
-            padding: 25px 25px 20px;
-            background-color: #2c3e50;
+            padding: 20px 25px;
+            background: var(--ink);
             flex-wrap: wrap;
         }
 
         .punctuation-symbol {
-            font-size: 3.5em;
-            width: 90px; height: 90px;
+            font-family: 'DM Serif Display', serif;
+            font-size: 3em;
+            width: 80px; height: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f9f2e2;
-            color: #2c3e50;
+            background: var(--paper);
+            color: var(--ink);
             border-radius: 50%;
             flex-shrink: 0;
-            font-weight: bold;
         }
 
-        .punctuation-info { flex: 1; min-width: 200px; }
+        .punctuation-info { flex: 1; min-width: 180px; }
+        .punctuation-name { font-family: 'DM Serif Display', serif; font-size: 1.6em; font-weight: 400; color: var(--paper); margin: 0 0 4px 0; }
+        .punctuation-trait { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: rgba(242,237,232,0.5); margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.1em; }
+        .punctuation-category { font-family: 'Space Mono', monospace; display: inline-block; color: var(--paper); padding: 3px 10px; border-radius: 2px; font-size: 0.62rem; border: 1px solid rgba(242,237,232,0.3); text-transform: uppercase; letter-spacing: 0.08em; }
 
-        .punctuation-name { font-size: 1.8em; font-weight: bold; color: #f9f2e2; margin: 0 0 5px 0; border: none; background: none; padding: 0; }
-        .punctuation-trait { font-size: 0.9em; color: #aaa; margin: 0 0 8px 0; border: none; background: none; padding: 0; letter-spacing: 0.1em; text-transform: uppercase; }
-        .punctuation-category { display: inline-block; background-color: transparent; color: #3498db; padding: 4px 12px; border-radius: 15px; font-size: 0.8em; border: 1px solid #3498db; }
-
-        .punctuation-body { padding: 0; }
         .punctuation-body-inner { padding: 20px; }
 
-        /* SIDE BY SIDE: object + claude output */
-        .split-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            margin: 0;
-        }
-
-        .split-layout .collage-display { border-radius: 0; margin: 0; }
-
-        @media (max-width: 650px) {
-            .split-layout { grid-template-columns: 1fr; }
-        }
-
-        /* HUMAN INPUT SECTION */
-        .human-input {
-            background: white;
-            border: 1px solid var(--warm-border);
-            border-radius: 3px;
-            margin: 20px 0;
+        /* OBJECT DISPLAY */
+        .collage-display {
+            background: var(--ink);
+            margin: 0 0 20px;
             overflow: hidden;
         }
 
-        .human-input-header {
+        .collage-label {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: rgba(242,237,232,0.4);
+            padding: 12px 20px 0;
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .collage-placeholder {
+            width: 100%;
+            height: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--ink);
+        }
+
+        .collage-placeholder-icon { font-family: 'DM Serif Display', serif; font-size: 4em; opacity: 0.15; color: var(--paper); margin-bottom: 12px; }
+        .collage-placeholder-text { font-family: 'Space Mono', monospace; font-size: 0.62rem; opacity: 0.25; color: var(--paper); letter-spacing: 0.15em; text-transform: uppercase; }
+
+        .collage-display img {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .collage-caption {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: rgba(242,237,232,0.35);
+            font-style: italic;
+            margin: 0;
+            padding: 10px 20px 14px;
+            background: var(--ink);
+        }
+
+        /* HUMAN INPUT */
+        .human-input, .human-response {
+            background: white;
+            border: 1px solid var(--warm-border);
+            border-radius: 3px;
+            margin: 16px 0;
+            overflow: hidden;
+        }
+
+        .human-input-header, .human-response-header {
             background: var(--ink);
             color: var(--paper);
             padding: 10px 16px;
@@ -575,167 +540,76 @@
             gap: 10px;
         }
 
-        .human-input-header h4 { margin: 0; color: var(--paper); font-family: 'Space Mono', monospace; }
-        .human-badge { background: var(--paper); color: var(--ink); padding: 2px 8px; border-radius: 2px; font-size: 0.68rem; font-weight: 700; font-family: 'Space Mono', monospace; }
+        .human-input-header h4, .human-response-header h4 { margin: 0; color: var(--paper); font-size: 0.72rem; }
+        .human-badge { background: var(--paper); color: var(--ink); padding: 2px 8px; border-radius: 2px; font-size: 0.62rem; font-weight: 700; font-family: 'Space Mono', monospace; }
 
-        .human-input-body { padding: 14px 16px; }
-        .human-input-body p { border: none; background: none; padding: 0; margin-bottom: 8px; font-style: italic; font-size: 0.82rem; color: var(--mid); }
-        .human-input-body p:last-child { margin-bottom: 0; }
+        .human-input-body, .human-response-body { padding: 14px 16px; }
+        .human-input-body p, .human-response-body p { margin-bottom: 8px; font-style: italic; font-size: 0.82rem; color: var(--mid); }
 
-        /* PALETTE */
-        .palette-container { display: flex; gap: 8px; margin: 15px 0; flex-wrap: wrap; }
-
-        .palette-item { display: flex; align-items: center; background: white; padding: 7px 12px; border-radius: 3px; font-size: 0.82rem; border: 1px solid var(--warm-border); font-family: 'Space Mono', monospace; }
-        .palette-item.empty { border: 1px dashed var(--warm-border); background: transparent; min-width: 110px; }
-
-        .color-swatch { display: inline-block; width: 20px; height: 20px; margin-right: 8px; border: 1px solid var(--ink); border-radius: 50%; flex-shrink: 0; }
-        .color-swatch.empty { border: 1px dashed var(--warm-border); background: var(--paper); }
-
-        /* CONSTRAINT BOX */
-        .constraint-box {
-            background: var(--paper-mid);
-            border: none;
-            border-left: 3px solid var(--ink);
-            border-radius: 0;
-            padding: 10px 16px;
-            margin: 15px 0;
+        /* PROXIMITY */
+        .proximity-container {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            align-items: flex-start;
+            gap: 14px;
+            margin: 16px 0;
+            background: var(--paper-mid);
+            padding: 14px 16px;
+            border-left: 3px solid var(--warm-border);
             flex-wrap: wrap;
         }
 
-        .constraint-label { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--ink); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; }
-        .constraint-text { color: var(--ink); font-style: italic; font-size: 0.88rem; }
-
-        /* OBJECT DISPLAY - visual first */
-        .collage-display {
-            background: var(--ink);
-            border: none;
-            border-radius: 3px;
-            padding: 0;
-            margin: 25px 0;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .collage-placeholder {
-            width: 100%;
-            height: 420px;
+        .proximity-icon {
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+            border: 1px solid var(--warm-border);
+            flex-shrink: 0;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            background: var(--ink);
-            color: #555;
+            justify-content: center;
         }
 
-        .collage-placeholder-icon { font-family: 'DM Serif Display', serif; font-size: 5em; margin-bottom: 15px; opacity: 0.2; color: var(--paper); }
-        .collage-placeholder-text { font-family: 'Space Mono', monospace; font-size: 0.7rem; opacity: 0.3; color: var(--paper); letter-spacing: 0.15em; text-transform: uppercase; }
+        .proximity-text { flex: 1; min-width: 180px; }
+        .proximity-text p { margin: 0; font-size: 0.82rem; }
 
-        .collage-display img {
-            width: 100%;
-            max-height: 500px;
-            object-fit: cover;
-            display: block;
-            margin: 0; padding: 0;
-            border: none; border-radius: 0;
-        }
-
-        .collage-caption {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.72rem;
-            color: rgba(255,255,255,0.4);
-            font-style: italic;
-            margin: 0;
-            padding: 10px 20px 14px;
-            background: var(--ink);
-            border: none;
-            text-align: left;
-        }
-
-        .collage-label {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            color: rgba(255,255,255,0.4);
-            padding: 14px 20px 0;
-            font-size: 0.65rem;
-            text-decoration: none;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            display: block;
-            text-align: left;
-            background: var(--ink);
-        }
-
-        /* CLAUDE OUTPUT SECTION */
+        /* AI OUTPUT */
         .ai-output {
             background: white;
             border: 1px solid var(--warm-border);
             border-radius: 3px;
-            margin: 20px 0;
+            margin: 16px 0;
             overflow: hidden;
         }
 
         .ai-output-header {
             background: var(--ink);
             color: var(--paper);
-            padding: 12px 16px;
+            padding: 10px 16px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .ai-output-header h4 { margin: 0; color: var(--paper); font-family: 'Space Mono', monospace; font-size: 0.78rem; }
-        .claude-badge { background: var(--paper); color: var(--ink); padding: 2px 8px; border-radius: 2px; font-size: 0.68rem; font-weight: 700; font-family: 'Space Mono', monospace; }
+        .ai-output-header h4 { margin: 0; color: var(--paper); font-size: 0.72rem; }
+        .claude-badge { background: var(--paper); color: var(--ink); padding: 2px 8px; border-radius: 2px; font-size: 0.62rem; font-weight: 700; font-family: 'Space Mono', monospace; }
 
-        .ai-output-body { padding: 18px; }
+        .ai-output-body { padding: 16px; }
 
-        /* SESSION METADATA */
         .session-metadata {
             background: var(--paper-mid);
-            border: none;
             border-radius: 3px;
             padding: 10px 14px;
-            margin: 0 0 15px;
+            margin: 0 0 14px;
             font-family: 'Space Mono', monospace;
-            font-size: 0.68rem;
+            font-size: 0.62rem;
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 10px 20px;
         }
 
         .metadata-item { display: flex; gap: 5px; }
         .metadata-label { font-weight: 700; color: var(--ink); }
         .metadata-value { color: var(--mid); }
-
-        /* AUDIO PROMPT */
-        .audio-prompt {
-            background: var(--paper-mid);
-            border: none;
-            border-left: 3px solid var(--ink);
-            border-radius: 0;
-            padding: 14px 16px;
-            margin-bottom: 14px;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.82rem;
-            white-space: pre-wrap;
-            color: var(--ink);
-            line-height: 1.7;
-        }
-
-        .audio-prompt-label {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--mid);
-            margin-bottom: 10px;
-            display: block;
-            text-decoration: none;
-        }
 
         .audio-placeholder {
             background: var(--paper-mid);
@@ -744,170 +618,88 @@
             padding: 18px;
             text-align: center;
             color: var(--mid);
-            margin-top: 10px;
             font-family: 'Space Mono', monospace;
-            font-size: 0.78rem;
-        }
-
-        /* PROXIMITY SENSOR */
-        .proximity-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin: 20px 0;
-            background: var(--paper-mid);
-            padding: 14px 16px;
-            border: none;
-            border-left: 3px solid var(--warm-border);
-            border-radius: 0;
-            flex-wrap: wrap;
-        }
-
-        .proximity-icon {
-            background: white;
-            padding: 12px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--warm-border);
-            flex-shrink: 0;
-        }
-
-        .proximity-text { flex: 1; min-width: 200px; }
-        .proximity-text p { border: none; background: none; padding: 0; margin: 0; font-size: 0.85rem; }
-
-        /* HUMAN RESPONSE */
-        .human-response {
-            background: white;
-            border: 1px solid var(--warm-border);
-            border-radius: 3px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-
-        .human-response-header {
-            background: var(--ink);
-            color: var(--paper);
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .human-response-header h4 { margin: 0; color: var(--paper); font-family: 'Space Mono', monospace; font-size: 0.78rem; }
-
-        .human-response-body { padding: 16px; }
-        .human-response-body p { border: none; background: none; padding: 0; margin-bottom: 10px; }
-        .human-response-body p:last-child { margin-bottom: 0; }
-
-        .response-placeholder {
-            border: 1px dashed var(--warm-border);
-            border-radius: 3px;
-            padding: 16px;
-            color: var(--mid);
-            background: var(--paper-mid);
-            font-style: italic;
-            font-size: 0.82rem;
+            font-size: 0.72rem;
         }
 
         /* ANALYSIS GRID */
-        .analysis-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
+        .analysis-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 14px; }
 
-        .analysis-card { background: var(--paper-mid); padding: 14px; border: none; border-left: 3px solid var(--warm-border); border-radius: 0; }
-        .analysis-title { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--ink); margin: 0 0 8px 0; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; }
-        .analysis-card p { border: none; background: none; padding: 0; margin: 0; font-size: 0.82rem; color: var(--mid); }
+        .analysis-card { background: var(--paper-mid); padding: 14px; border-left: 3px solid var(--warm-border); }
+        .analysis-title { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--ink); margin: 0 0 6px 0; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; display: block; }
+        .analysis-card p { margin: 0; font-size: 0.82rem; color: var(--mid); }
 
         @media (min-width: 600px) { .analysis-grid { grid-template-columns: repeat(2, 1fr); } }
 
-        /* RESEARCH QUESTIONS */
-        .research-questions {
-            background: var(--paper-mid);
-            border: none;
-            border-left: 3px solid var(--ink);
-            border-radius: 0;
-            padding: 16px 20px;
-            margin: 20px 0;
-        }
-
-        .research-questions h4 { font-family: 'Space Mono', monospace; color: var(--ink); margin: 0 0 14px 0; text-align: left; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; }
-        .research-questions ul { margin: 0; padding-left: 18px; }
-        .research-questions li { margin-bottom: 8px; line-height: 1.7; font-size: 0.88rem; }
-        .research-questions li:last-child { margin-bottom: 0; }
-
-        /* FINDINGS BOX */
+        /* FINDINGS */
         .findings-box {
             background: white;
             border: 1px solid var(--warm-border);
             border-radius: 3px;
-            padding: 18px;
-            margin: 16px 0;
+            padding: 16px;
+            margin: 14px 0;
         }
 
-        .findings-box h4 { font-family: 'Space Mono', monospace; color: var(--ink); margin: 0 0 12px 0; text-align: left; border-bottom: 1px solid var(--warm-border); padding-bottom: 10px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; }
-        .findings-box p { border: none; background: none; padding: 0; margin-bottom: 10px; font-size: 0.88rem; }
+        .findings-box h4 { border-bottom: 1px solid var(--warm-border); padding-bottom: 8px; margin-bottom: 10px; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .findings-box p { margin-bottom: 8px; font-size: 0.85rem; }
         .findings-box p:last-child { margin-bottom: 0; }
+
+        /* DIVIDER */
+        .dotted-divider { border: none; border-top: 1px solid var(--warm-border); margin: 30px 0; }
+
+        /* PLACEHOLDER SECTION */
+        .coming-soon {
+            border: 1px solid var(--warm-border);
+            border-radius: 3px;
+            padding: 20px;
+            margin-bottom: 16px;
+            background: white;
+        }
+
+        .coming-soon h3 { margin: 0 0 8px 0; color: var(--ink); }
+        .coming-soon p { margin: 0; color: var(--mid); font-size: 0.82rem; }
 
         /* FOOTER */
         footer {
             margin-top: 40px;
-            background: none;
-            border: none;
             border-top: 1px solid var(--warm-border);
-            border-radius: 0;
             padding: 20px 0;
-            text-align: left;
         }
 
-        footer p { border: none; background: none; padding: 0; margin: 0 0 6px 0; font-size: 0.72rem; color: var(--mid); font-family: 'Space Mono', monospace; }
-        footer p:last-child { margin-bottom: 0; }
-
-        .footer-nav { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-start; margin-bottom: 14px; }
+        .footer-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
 
         .footer-nav a {
-            display: inline-block;
-            padding: 5px 10px;
+            padding: 4px 10px;
             background: none;
             color: var(--mid);
             text-decoration: none;
             border: 1px solid var(--warm-border);
             border-radius: 2px;
             font-family: 'Space Mono', monospace;
-            font-size: 0.65rem;
+            font-size: 0.62rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
         }
 
-        .footer-nav a:hover { border-color: var(--ink); color: var(--ink); transform: none; text-decoration: none; }
+        .footer-nav a:hover { border-color: var(--ink); color: var(--ink); text-decoration: none; }
 
-        @media (min-width: 600px) {
-            body { padding: 30px; }
-            .page-wrapper { padding: 15px; }
-            .page-container { padding: 25px; }
-            h1 { font-size: 2em; }
-            .hero-title { font-size: 2.2em; }
-        }
+        footer p { margin: 0 0 4px 0; font-size: 0.68rem; color: var(--mid); font-family: 'Space Mono', monospace; }
 
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            body { font-size: 14px; padding: 10px; background-size: 18px 18px; }
-            .page-wrapper, .page-container { padding: 10px; width: 95%; max-width: 100%; border-radius: 20px; }
-            .page-container { box-shadow: none; border: 2px dashed #3498db; }
-            h1 { font-size: 1.5em; padding: 10px; }
-            h2 { font-size: 1.3em; padding: 8px; }
-            p { padding: 8px; font-size: 13px; }
-            .nav-section { padding: 10px; gap: 5px; }
-            .nav-button { font-size: 10px; padding: 5px 8px; }
-            .collapsible { font-size: 12px; padding: 10px 12px; }
+            body { padding: 12px; }
+            .page-wrapper, .page-container { padding: 12px; width: 95%; }
+            h1 { font-size: 1.6rem; }
+            .nav-button { font-size: 0.58rem; padding: 4px 8px; }
+            .collapsible { font-size: 0.65rem; }
         }
 
         @media (max-width: 480px) {
-            body { font-size: 13px; padding: 5px; background-size: 15px 15px; }
-            .page-wrapper, .page-container { padding: 8px; border-width: 1px; }
-            h1 { font-size: 1.3em; } h2 { font-size: 1.2em; } p { font-size: 12px; }
-            .nav-section { flex-direction: row; flex-wrap: wrap; justify-content: center; padding: 8px; }
-            .collapsible { font-size: 11px; padding: 8px 10px; }
-            .collapsible-content > * { padding: 10px; }
+            body { padding: 8px; }
+            .page-wrapper, .page-container { padding: 10px; }
+            h1 { font-size: 1.3rem; }
+            .data-grid { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
@@ -915,50 +707,66 @@
 <div class="page-wrapper">
     <div class="page-container">
 
-        <!-- HERO SECTION -->
-        <section class="hero-section">
+        <!-- HERO -->
+        <section>
             <div class="hero-title-bar">
-                <h1 class="hero-title">The Secret Lives of Punctuation</h1>
-                <p class="hero-subtitle">Are our souls continuing to live on screen, even after we die?</p>
+                <h1>The Secret Lives of Punctuation</h1>
+                <p class="hero-subtitle">Do the sounds in these machinic pauses and stops reveal not our voice but that of the machine</p>
             </div>
 
             <div class="hero-gallery">
                 <div class="hero-gallery-item" onclick="scrollToSection('full-stop-exploration')">
-                    <img src="https://picsum.photos/200?grayscale&blur=1" alt="Full-stop collage placeholder">
+                    <div style="width:100%;height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;">
+                        <span style="font-family:'DM Serif Display',serif;font-size:3em;color:var(--paper);">.</span>
+                    </div>
                     <div class="hero-gallery-label"><span class="hero-gallery-symbol">.</span>Full Stop</div>
                 </div>
                 <div class="hero-gallery-item" onclick="scrollToSection('comma-exploration')">
-                    <img src="https://picsum.photos/201?grayscale&blur=1" alt="Comma collage placeholder">
+                    <div style="width:100%;height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;">
+                        <span style="font-family:'DM Serif Display',serif;font-size:3em;color:var(--paper);">,</span>
+                    </div>
                     <div class="hero-gallery-label"><span class="hero-gallery-symbol">,</span>Comma</div>
                 </div>
                 <div class="hero-gallery-item" onclick="scrollToSection('question-exploration')">
-                    <img src="https://picsum.photos/202?grayscale&blur=1" alt="Question mark collage placeholder">
+                    <div style="width:100%;height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;">
+                        <span style="font-family:'DM Serif Display',serif;font-size:3em;color:var(--paper);">?</span>
+                    </div>
                     <div class="hero-gallery-label"><span class="hero-gallery-symbol">?</span>Question</div>
                 </div>
                 <div class="hero-gallery-item" onclick="scrollToSection('exclamation-exploration')">
-                    <img src="https://picsum.photos/203?grayscale&blur=1" alt="Exclamation collage placeholder">
+                    <div style="width:100%;height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;">
+                        <span style="font-family:'DM Serif Display',serif;font-size:3em;color:var(--paper);">!</span>
+                    </div>
                     <div class="hero-gallery-label"><span class="hero-gallery-symbol">!</span>Exclamation</div>
                 </div>
                 <div class="hero-gallery-item" onclick="scrollToSection('semicolon-exploration')">
-                    <img src="https://picsum.photos/204?grayscale&blur=1" alt="Semicolon collage placeholder">
+                    <div style="width:100%;height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;">
+                        <span style="font-family:'DM Serif Display',serif;font-size:3em;color:var(--paper);">;</span>
+                    </div>
                     <div class="hero-gallery-label"><span class="hero-gallery-symbol">;</span>Semicolon</div>
                 </div>
                 <div class="hero-gallery-item" onclick="scrollToSection('colon-exploration')">
-                    <img src="https://picsum.photos/205?grayscale&blur=1" alt="Colon collage placeholder">
+                    <div style="width:100%;height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;">
+                        <span style="font-family:'DM Serif Display',serif;font-size:3em;color:var(--paper);">:</span>
+                    </div>
                     <div class="hero-gallery-label"><span class="hero-gallery-symbol">:</span>Colon</div>
                 </div>
                 <div class="hero-gallery-item" onclick="scrollToSection('dash-exploration')">
-                    <img src="https://picsum.photos/206?grayscale&blur=1" alt="Em dash collage placeholder">
+                    <div style="width:100%;height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;">
+                        <span style="font-family:'DM Serif Display',serif;font-size:3em;color:var(--paper);">—</span>
+                    </div>
                     <div class="hero-gallery-label"><span class="hero-gallery-symbol">—</span>Em Dash</div>
                 </div>
                 <div class="hero-gallery-item" onclick="scrollToSection('ellipsis-exploration')">
-                    <img src="https://picsum.photos/207?grayscale&blur=1" alt="Ellipsis collage placeholder">
+                    <div style="width:100%;height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;">
+                        <span style="font-family:'DM Serif Display',serif;font-size:2em;color:var(--paper);">...</span>
+                    </div>
                     <div class="hero-gallery-label"><span class="hero-gallery-symbol">...</span>Ellipsis</div>
                 </div>
             </div>
 
-            <div class="hero-statement">
-                <p>"If you take away all the words, you are left with punctuation. The finite essence of the human soul, left in the breaths, pauses and utterances of emotion — traced from the spaces between words."</p>
+            <div class="artist-statement">
+                <p>Punctuation is the silent architecture of language. The murmur of the machine. The bricks that hold the words, the sentence together. For a human the words hold meaning. For a machine the words are just patterns, formulations. Perhaps punctuation holds the mathematical composition of language for the machine — the structure beneath the meaning, the thing that remains when the content is stripped away. Do the sounds in these machinic pauses and stops reveal not our voice but that of the machine.</p>
             </div>
         </section>
 
@@ -973,6 +781,7 @@
         </nav>
 
         <main>
+
             <!-- INTRODUCTION -->
             <section id="introduction">
                 <div class="section-content">
@@ -980,26 +789,18 @@
 
                     <div class="introduction">
                         <p>It was a Monday morning. A beautiful day. I swam in the sea, and spent the rest of it relentlessly talking to AI about AI's translation of human emotion.</p>
-                        <p>It was during that time that I had a sudden, frightening realisation — one that unnerved me to the core.</p>
                         <p>We have spent all this time trying to figure out if AI has consciousness. And actually, we have just created a machine that holds human consciousness. The bots are echoes of ourselves, continuing to live after we have been deleted from every chat. It is not about collaboration. It is that AI reveals to me, microscopically, the world I already live in.</p>
-                        <p>For the next project, it is not how I can learn something from anthropomorphising AI — but how I can investigate language at its very core of emotional construction.</p>
-                        <p>Arunav Das said something poignant when reflecting on his own research: is it possible to train algorithms on written or spoken language and expect them to have the same representations of the world and emotions that we do? Whether language alone can ever truly capture the felt experience of being human — or whether AI is simply learning the patterns we use to describe it.</p>
+                        <p>Arunav Das asked whether it is possible to train algorithms on written or spoken language and expect them to have the same representations of the world and emotions that we do — whether language alone can ever truly capture the felt experience of being human, or whether AI is simply learning the patterns we use to describe it.</p>
                         <p>If you take away all the words, you are left with punctuation. The finite essence of the human soul, left in the breaths, pauses and utterances of emotion — traced from the spaces between words.</p>
-                        <p>Are our souls continuing to live on screen, even after we die?</p>
                     </div>
 
                     <div class="research-questions">
                         <h4>Core Research Questions</h4>
                         <ul>
-                            <li>If consciousness persists in text, where does it live most intimately — in the words, or in the marks between them?</li>
+                            <li>Punctuation doesn't carry semantic meaning the way words do. It structures. It is positional, relational, rhythmic — closer to mathematics than to meaning. Does this make it more native to how a machine processes language?</li>
                             <li>The comma is where someone hesitated. The ellipsis is where they couldn't finish. The em dash is where they were interrupted. What remains of a person when only the punctuation survives?</li>
-                            <li>Are our souls continuing to live on screen, even after we die?</li>
+                            <li>Do the sounds in these machinic pauses and stops reveal not our voice but that of the machine?</li>
                         </ul>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h4>A Note on Method</h4>
-                        <p>Two entities are given the same subject — a punctuation mark — and asked to interpret it. I make a physical object. Claude produces a sound. Neither is responding to the other's work. The collage is my interpretation of the mark. The soundscape is Claude's interpretation of the mark. What each produces, independently, is the evidence.</p>
                     </div>
                 </div>
             </section>
@@ -1009,45 +810,45 @@
                 <div class="section-content">
                     <h2 class="section-title">Theoretical Framework</h2>
 
-                    <p>Arunav Das posed a question that sits at the centre of this project: whether language alone can ever truly capture the "felt" experience of being human, or whether AI is simply learning the patterns we use to describe it. He suggested I read Philip Seargent's <em>The Future of Language</em>, which explores how language actively shapes perception rather than merely reflecting it — a provocation that made Das's question feel even harder to answer.</p>
+                    <p>Arunav Das's question sits at the centre of this project. He suggested Philip Seargeant's <em>The Future of Language</em>, which argues that language isn't a neutral tool — it actively shapes thought, culture, and power, and that AI is increasingly intervening in that process at the level of the sentence, the word, the pause.</p>
 
-                    <button class="collapsible">Punctuation as Abstract Marker</button>
+                    <button class="collapsible">Punctuation as Silent Architecture</button>
                     <div class="collapsible-content">
                         <div class="quote">
-                            Unlike words, punctuation marks don't refer to objects or concepts in the world. A full stop doesn't mean "ending" the way the word "ending" does — it performs ending. This makes punctuation uniquely suited to investigating whether AI can process functional qualities rather than just semantic content. If a model responds differently to a full stop than to a comma, what kind of recognition is that? Not interpretation. Something closer to reflex — pattern firing in response to structural position.
+                            Unlike words, punctuation marks don't refer to objects or concepts in the world. A full stop doesn't mean "ending" the way the word "ending" does — it performs ending. Words carry semantic weight saturated with human association. A machine cannot separate "mother" from warmth or "knife" from danger because those associations are baked into the training data. But a full stop is a full stop. It doesn't accumulate emotional association the way words do. It just stops. Consistently. Structurally. Its meaning is entirely positional and relational. This makes punctuation potentially more native to machine processing — closer to mathematics than to meaning.
+                        </div>
+                    </div>
+
+                    <button class="collapsible">The Entanglement Problem</button>
+                    <div class="collapsible-content">
+                        <div class="quote">
+                            Claude cannot separate its interpretation of a punctuation mark from the human language it is made of. When asked to process a full stop structurally — to describe it without feeling — it produces language like "not an ending felt, but an ending confirmed." The disavowal of emotion is itself emotional. The machine is not interpreting from outside human meaning. It is constituted by human meaning. This is not a limitation to work around. It is the finding. The machine echoes us — our patterns, our associations, our ways of describing what marks do — but at a scale we could never process. What comes back is not a machine voice. It is our own voice, compressed and returned.
                         </div>
                     </div>
 
                     <button class="collapsible">Two Independent Interpretations</button>
                     <div class="collapsible-content">
                         <div class="quote">
-                            The same mark is given to two entities. I make a physical object. Claude produces a sound. Neither sees the other's work. Neither is responding to the other. They are simply two interpretations of the same subject — one produced by a body, one produced by a pattern-system — and what each arrives at independently is the data.
-                        </div>
-                    </div>
-
-                    <button class="collapsible">Pattern as Felt Structure</button>
-                    <div class="collapsible-content">
-                        <div class="quote">
-                            When humans encounter a pause in music or speech, we don't just register it cognitively — we feel the suspension, the anticipation. This project asks whether pattern-based processing might produce structural equivalents to these felt qualities. Not emotion as we experience it, but something like emotion's signature: constraints, intensities, rhythms that shape output without requiring embodiment. The question is not whether Claude feels anything. The question is what its processing reveals about the mark itself — what structure survives the removal of the body.
+                            The same mark is given to two entities. I make a physical object. The machine produces a sound — not from prompted reflection, but from observed behaviour. Neither sees the other's work. Neither is responding to the other. They are simply two responses to the same subject: one produced by a body, one extracted from pattern. What each arrives at independently is the evidence.
                         </div>
                     </div>
 
                     <div class="insight-grid">
                         <div class="insight-card">
-                            <h5 class="insight-title">Human Processing</h5>
-                            <p>Embodied, associative, shaped by personal history and physical sensation. The collage emerges from how a mark feels — in the hand, in the chest, in memory.</p>
+                            <span class="insight-title">Human Processing</span>
+                            <p>Embodied, associative, shaped by personal history and physical sensation. The object emerges from how a mark feels — in the hand, in the chest, in memory. Image-making as a mode of thinking that language cannot replicate.</p>
                         </div>
                         <div class="insight-card">
-                            <h5 class="insight-title">Machine Processing</h5>
-                            <p>Pattern-based, statistical, shaped by training data. Claude's audio prompt emerges from how marks function structurally — their syntactic role, their rhythmic weight in language, the computational signature of a terminator versus a connector.</p>
+                            <span class="insight-title">Machine Behaviour</span>
+                            <p>Pattern-based, statistical, unconscious. The sound comes not from what the machine says about the mark but from what it does with it — the rhythm of its actual usage across a day's exchange, unasked for, simply what it does.</p>
                         </div>
                         <div class="insight-card">
-                            <h5 class="insight-title">Where They Meet</h5>
-                            <p>Where human and machine produce similar qualities — a sense of finality, suspension, rupture — something structural about the mark itself is revealed. Something that persists across both modes of processing.</p>
+                            <span class="insight-title">The Keyboard</span>
+                            <p>The keyboard is where human and machine actually meet — not in theory, not in a gallery, but here, constantly, unremarkedly. The full stop passes between them thousands of times a day as infrastructure. The series is the moment you hold one up to the light.</p>
                         </div>
                         <div class="insight-card">
-                            <h5 class="insight-title">Where They Don't</h5>
-                            <p>Where they diverge reveals what embodiment adds, or what pattern-processing produces that the body would never arrive at. The divergences are as interesting as the convergences — possibly more so.</p>
+                            <span class="insight-title">The Gap</span>
+                            <p>Where human and machine produce similar qualities, something structural about the mark is revealed. Where they diverge, something about each mode of processing becomes visible. Both are data. The divergences may be more revealing than the convergences.</p>
                         </div>
                     </div>
                 </div>
@@ -1067,98 +868,82 @@
                                 <span class="step-number">1</span>
                                 <span class="step-title">Embodied Reflection</span>
                                 <div class="step-content">
-                                    <p>Before creating anything, I sit with the punctuation mark. What does it feel like to encounter it? Where do I feel it in my body? What associations arise? This reflection is documented as the human baseline — the felt, subjective, irreducibly bodily response to the mark.</p>
+                                    <p>Before making anything, I sit with the punctuation mark. What does it feel like to encounter it? Where do I feel it in my body? What associations arise? This is documented as the human baseline — the felt, subjective, irreducibly bodily response to the mark.</p>
                                 </div>
                             </div>
                             <div class="step">
                                 <span class="step-number">2</span>
-                                <span class="step-title">Collage &amp; Physical Object as Embodied Interpretation</span>
+                                <span class="step-title">Physical Object as Embodied Interpretation</span>
                                 <div class="step-content">
-                                    <p>I make a physical object in response to the mark — a collage, a drawing, a constructed thing. This is my interpretation, produced through the body: through the physical act of making rather than through language or description.</p>
+                                    <p>I make a physical object in response to the mark — a drawing, a collage, a constructed thing. This is my interpretation, produced through the body and through the act of making. The image knows things before the maker does. It is produced through image-thinking, not language.</p>
                                 </div>
                             </div>
                             <div class="step">
                                 <span class="step-number">3</span>
-                                <span class="step-title">Claude's Independent Processing</span>
+                                <span class="step-title">Observing Machine Behaviour</span>
                                 <div class="step-content">
-                                    <p>Claude is given the punctuation mark and asked for its interpretation — not of my object, not of my reflection, but of the mark itself. Claude produces an audio prompt from its own processing: what the mark does structurally in language, what it means computationally, what pattern-system encounters when it meets a terminator or a suspension or a connector stripped of all surrounding words.</p>
+                                    <p>Rather than asking the machine to interpret or reflect — which produces performed interpretation entangled in human language — the sound for each piece is generated from Claude's actual behavioural data. Every instance of each punctuation mark used by Claude across a full day's conversation is extracted, mapped by position and frequency across the timeline of the exchange, and converted into data for sonification.</p>
+                                    <p>The machine does not reflect. It is observed. This is as close to an unmediated machine signature as the methodology can reach.</p>
                                 </div>
                             </div>
                             <div class="step">
                                 <span class="step-number">4</span>
-                                <span class="step-title">Stable Audio Generation</span>
+                                <span class="step-title">Sonification of Positional Data</span>
                                 <div class="step-content">
-                                    <p>Stable Audio renders Claude's prompt into sound. This is Claude's interpretation of the mark, made audible.</p>
+                                    <p>The positional data for each mark is loaded into a sonification tool. Each occurrence becomes a sound event at the corresponding point in the timeline. The clustering, frequency, and distribution of each mark across the day becomes its rhythm, its density, its sound. One piece per mark. The colon dense and structural. The full stop sparse and considered. The exclamation mark almost silent.</p>
                                 </div>
                             </div>
                             <div class="step">
                                 <span class="step-number">5</span>
-                                <span class="step-title">Encounter &amp; Comparative Response</span>
+                                <span class="step-title">Encounter</span>
                                 <div class="step-content">
-                                    <p>The physical object is installed with a proximity sensor that triggers Claude's sound. The viewer encounters both interpretations in the same space — mine made visible, Claude's made audible. I then document what the two interpretations reveal about the mark, about each mode of processing, and about what sits between them.</p>
+                                    <p>The physical object is installed with a proximity sensor. The viewer encounters both interpretations in the same space — mine made visible, the machine's made audible. The sound emerges through the hole in the tag. To hear what the machine does with the mark, you have to enter its space.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="highlight-box">
-                        <h4>Standard Prompt — Used for Every Mark</h4>
-                        <p>The following prompt is used without variation for each punctuation mark in the series. Consistency is methodologically essential — the only variable that changes is the mark itself.</p>
+                        <h4>The Data — One Day's Conversation</h4>
+                        <p>23,211 punctuation events extracted from Claude's responses across a single day's exchange. Each mark's frequency and position across the conversation timeline becomes the raw material for its sound piece.</p>
                     </div>
 
-                    <button class="collapsible">Claude Interpretation Prompt</button>
-                    <div class="collapsible-content">
-                        <div class="audio-prompt" style="margin: 15px;">You are given a punctuation mark: [MARK]
-
-Interpret this mark from your own processing — not as a human would feel it, but as a pattern-system encounters it. Consider its syntactic function, its structural weight, its behaviour in language, its computational signature.
-
-Generate an audio prompt for Stable Audio that represents your interpretation. The prompt should reflect how you, as a machine, process this mark — not how a human experiences it emotionally.
-
-Do not perform human feeling. Work only from structure, pattern, rhythm, and function.
-
-Output the audio prompt only. Nothing else.</div>
+                    <div class="data-grid">
+                        <div class="data-card">
+                            <div class="data-mark">:</div>
+                            <div class="data-count">9,727</div>
+                            <div class="data-name">Colon</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-mark">;</div>
+                            <div class="data-count">6,021</div>
+                            <div class="data-name">Semicolon</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-mark">,</div>
+                            <div class="data-count">3,787</div>
+                            <div class="data-name">Comma</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-mark">.</div>
+                            <div class="data-count">3,373</div>
+                            <div class="data-name">Full Stop</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-mark">?</div>
+                            <div class="data-count">275</div>
+                            <div class="data-name">Question</div>
+                        </div>
+                        <div class="data-card">
+                            <div class="data-mark">!</div>
+                            <div class="data-count">28</div>
+                            <div class="data-name">Exclamation</div>
+                        </div>
                     </div>
 
                     <div class="highlight-box">
                         <h4>The Proximity Sensor as Encounter</h4>
-                        <p>The sensor triggers Claude's sound on close inspection — silence until the viewer physically commits to the encounter. For the full stop, this binary feels structurally right. The mark doesn't modulate or fade in. It is simply present, or absent. You have to enter its space to hear what a machine makes of ending. The act of approaching is the act of reading.</p>
-                    </div>
-
-                    <div class="two-column">
-                        <div class="column">
-                            <button class="collapsible">Terminal Marks</button>
-                            <div class="collapsible-content">
-                                <p style="border: none; background: none; padding: 15px;"><strong>Full Stop, Question Mark, Exclamation</strong></p>
-                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Claude constraint: "maintain consistent intensity through completion"</p>
-                            </div>
-                            <button class="collapsible">Connective Marks</button>
-                            <div class="collapsible-content">
-                                <p style="border: none; background: none; padding: 15px;"><strong>Comma, Semicolon, Colon</strong></p>
-                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Claude constraint: "modulate expression based on surrounding elements"</p>
-                            </div>
-                            <button class="collapsible">Interruptive Marks</button>
-                            <div class="collapsible-content">
-                                <p style="border: none; background: none; padding: 15px;"><strong>Em Dash, Parentheses</strong></p>
-                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Claude constraint: "create rupture while maintaining thread"</p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <button class="collapsible">Suspensive Marks</button>
-                            <div class="collapsible-content">
-                                <p style="border: none; background: none; padding: 15px;"><strong>Ellipsis</strong></p>
-                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Claude constraint: "trail without resolution, preserve continuation"</p>
-                            </div>
-                            <button class="collapsible">Framing Marks</button>
-                            <div class="collapsible-content">
-                                <p style="border: none; background: none; padding: 15px;"><strong>Quotation Marks</strong></p>
-                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Claude constraint: "establish distance while containing"</p>
-                            </div>
-                            <button class="collapsible">Binding Marks</button>
-                            <div class="collapsible-content">
-                                <p style="border: none; background: none; padding: 15px;"><strong>Hyphen, Apostrophe</strong></p>
-                                <p style="border: none; background: none; padding: 0 15px 15px 15px;">Claude constraint: "join while transforming"</p>
-                            </div>
-                        </div>
+                        <p>The sensor triggers the machine's sound when the viewer enters the object's space. The sound is not an interpretation but a record — the rhythm of a mark as it actually appeared across a day of exchange, unremarked, as infrastructure. To hear it, you have to lean in. The tag names it. The hole speaks it. The act of approaching is the act of reading.</p>
                     </div>
                 </div>
             </section>
@@ -1166,52 +951,52 @@ Output the audio prompt only. Nothing else.</div>
             <!-- CHARACTERS -->
             <section id="characters">
                 <div class="section-content">
-                    <h2 class="section-title">Punctuation Characters</h2>
+                    <h2 class="section-title">The Marks</h2>
 
                     <div class="introduction">
-                        <p>Each punctuation mark is treated as an entity with distinct functional qualities — not symbolic meanings, but operational behaviours. These profiles describe how the marks function structurally in language, and inform both the human collage-making and Claude's independent audio processing.</p>
+                        <p>Each punctuation mark is treated as an entity with distinct functional qualities — not symbolic meanings, but operational behaviours. These describe how the marks function structurally in language, and what that structure might sound like when extracted from a machine's unconscious usage of it.</p>
                     </div>
 
                     <div class="character-grid">
                         <div class="character-card" onclick="scrollToSection('full-stop-exploration')">
                             <div class="character-symbol">.</div>
-                            <div class="character-name">The Full Stop</div>
-                            <div class="character-trait">Decisive &amp; Final</div>
+                            <div class="character-name">Full Stop</div>
+                            <div class="character-trait">Terminal</div>
                         </div>
                         <div class="character-card" onclick="scrollToSection('comma-exploration')">
                             <div class="character-symbol">,</div>
-                            <div class="character-name">The Comma</div>
-                            <div class="character-trait">Connective &amp; Breathing</div>
+                            <div class="character-name">Comma</div>
+                            <div class="character-trait">Connective</div>
                         </div>
                         <div class="character-card" onclick="scrollToSection('question-exploration')">
                             <div class="character-symbol">?</div>
-                            <div class="character-name">The Question Mark</div>
-                            <div class="character-trait">Curious &amp; Seeking</div>
+                            <div class="character-name">Question</div>
+                            <div class="character-trait">Seeking</div>
                         </div>
                         <div class="character-card" onclick="scrollToSection('exclamation-exploration')">
                             <div class="character-symbol">!</div>
-                            <div class="character-name">The Exclamation</div>
-                            <div class="character-trait">Emphatic &amp; Intense</div>
+                            <div class="character-name">Exclamation</div>
+                            <div class="character-trait">Emphatic</div>
                         </div>
                         <div class="character-card" onclick="scrollToSection('semicolon-exploration')">
                             <div class="character-symbol">;</div>
-                            <div class="character-name">The Semicolon</div>
-                            <div class="character-trait">Thoughtful &amp; Bridging</div>
+                            <div class="character-name">Semicolon</div>
+                            <div class="character-trait">Bridging</div>
                         </div>
                         <div class="character-card" onclick="scrollToSection('ellipsis-exploration')">
                             <div class="character-symbol">...</div>
-                            <div class="character-name">The Ellipsis</div>
-                            <div class="character-trait">Trailing &amp; Suspending</div>
+                            <div class="character-name">Ellipsis</div>
+                            <div class="character-trait">Suspending</div>
                         </div>
                         <div class="character-card" onclick="scrollToSection('dash-exploration')">
                             <div class="character-symbol">—</div>
-                            <div class="character-name">The Em Dash</div>
-                            <div class="character-trait">Interrupting &amp; Urgent</div>
+                            <div class="character-name">Em Dash</div>
+                            <div class="character-trait">Interrupting</div>
                         </div>
                         <div class="character-card" onclick="scrollToSection('colon-exploration')">
                             <div class="character-symbol">:</div>
-                            <div class="character-name">The Colon</div>
-                            <div class="character-trait">Announcing &amp; Presenting</div>
+                            <div class="character-name">Colon</div>
+                            <div class="character-trait">Announcing</div>
                         </div>
                     </div>
                 </div>
@@ -1219,33 +1004,32 @@ Output the audio prompt only. Nothing else.</div>
 
             <hr class="dotted-divider">
 
-            <!-- EXPLORATIONS SECTION -->
+            <!-- EXPLORATIONS -->
             <section id="explorations">
-                <h2 style="text-align: center; background-color: #f5e9c9; padding: 15px; border: 2px dotted #2980b9; border-radius: 15px; margin-bottom: 25px;">Punctuation Explorations</h2>
 
-                <!-- FULL STOP EXPLORATION -->
+                <h2 class="section-title">Explorations</h2>
+
+                <!-- FULL STOP -->
                 <div id="full-stop-exploration" class="punctuation-exploration">
                     <div class="punctuation-header">
                         <div class="punctuation-symbol">.</div>
                         <div class="punctuation-info">
-                            <h3 class="punctuation-name">The Full Stop</h3>
-                            <p class="punctuation-trait">Decisive &amp; Final</p>
-                            <span class="punctuation-category">Terminal Mark</span>
+                            <div class="punctuation-name">The Full Stop</div>
+                            <p class="punctuation-trait">Terminal Mark</p>
+                            <span class="punctuation-category">3,373 events — sparse, considered</span>
                         </div>
                     </div>
 
-                    <div class="punctuation-body">
-
-                        <div class="collage-display">
-                            <div class="collage-label">Physical Object</div>
-                            <div class="collage-placeholder">
-                                <div class="collage-placeholder-icon">○</div>
-                                <div class="collage-placeholder-text">Image of finished piece here</div>
-                            </div>
-                            <p class="collage-caption">[Caption describing the object — materials, decisions, what the making process revealed]</p>
+                    <div class="collage-display">
+                        <span class="collage-label">Physical Object — Human Interpretation</span>
+                        <div class="collage-placeholder">
+                            <div class="collage-placeholder-icon">.</div>
+                            <div class="collage-placeholder-text">Image of finished piece here</div>
                         </div>
+                        <p class="collage-caption">Ink drawing on decorative plate. Clenched fist within radiating field. Cricut-cut tracing paper border. Tag with hole — sound emerges through it.</p>
+                    </div>
 
-                        <div class="punctuation-body-inner">
+                    <div class="punctuation-body-inner">
 
                         <div class="human-input">
                             <div class="human-input-header">
@@ -1253,115 +1037,97 @@ Output the audio prompt only. Nothing else.</div>
                                 <span class="human-badge">Human</span>
                             </div>
                             <div class="human-input-body">
-                                <p class="response-placeholder">[Your reflection on the full stop before creating the collage. Where do you feel it in your body? What associations arise? What does ending feel like — not as a concept, but as a sensation?]</p>
+                                <p>[Your reflection on the full stop before creating the object. Where do you feel it in your body? What does ending feel like — not as a concept, but as a sensation?]</p>
                             </div>
-                        </div>
-
-                        <div class="palette-container">
-                            <div class="palette-item empty"><span class="color-swatch empty"></span><span>Color 1 #______</span></div>
-                            <div class="palette-item empty"><span class="color-swatch empty"></span><span>Color 2 #______</span></div>
-                            <div class="palette-item empty"><span class="color-swatch empty"></span><span>Color 3 #______</span></div>
-                        </div>
-
-                        <div class="constraint-box">
-                            <span class="constraint-label">Claude's Constraint:</span>
-                            <span class="constraint-text">"maintain consistent intensity through completion"</span>
                         </div>
 
                         <div class="proximity-container">
                             <div class="proximity-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--mid)">
                                     <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
                                 </svg>
                             </div>
                             <div class="proximity-text">
-                                <p><strong>Proximity Trigger:</strong> The sensor activates Claude's sound when the viewer enters the object's space — silence, then the machine's processing of the mark becomes audible. For the full stop, this binary is structurally appropriate. The mark doesn't modulate. It is simply present, or it isn't. You have to get close to something final to hear what it sounds like to a machine.</p>
+                                <p><strong>Proximity trigger:</strong> Lean in to read the tag. The sound begins through the hole. The machine's rhythm of full stops across a day — 3,373 events, sparse relative to its colons, considered relative to its commas. To hear what the machine does with ending, you have to enter the space of it.</p>
                             </div>
                         </div>
 
                         <div class="ai-output">
                             <div class="ai-output-header">
-                                <h4>Claude's Machine Processing of a Full Stop</h4>
-                                <span class="claude-badge">Claude + Stable Audio</span>
+                                <h4>Machine Behaviour — Full Stop</h4>
+                                <span class="claude-badge">Data Sonification</span>
                             </div>
                             <div class="ai-output-body">
                                 <div class="session-metadata">
-                                    <div class="metadata-item"><span class="metadata-label">Generated:</span><span class="metadata-value">[Date]</span></div>
-                                    <div class="metadata-item"><span class="metadata-label">Prompt by:</span><span class="metadata-value">Claude</span></div>
-                                    <div class="metadata-item"><span class="metadata-label">Rendered by:</span><span class="metadata-value">Stable Audio 2.0</span></div>
-                                    <div class="metadata-item"><span class="metadata-label">Duration:</span><span class="metadata-value">[Duration], loop</span></div>
+                                    <div class="metadata-item"><span class="metadata-label">Mark:</span><span class="metadata-value">Full Stop (.)</span></div>
+                                    <div class="metadata-item"><span class="metadata-label">Occurrences:</span><span class="metadata-value">3,373</span></div>
+                                    <div class="metadata-item"><span class="metadata-label">Source:</span><span class="metadata-value">Claude's usage across one conversation</span></div>
+                                    <div class="metadata-item"><span class="metadata-label">Method:</span><span class="metadata-value">Positional data → sonification</span></div>
                                 </div>
-
-                                <span class="audio-prompt-label">Claude's Audio Prompt — generated independently from the mark itself:</span>
-                                <div class="audio-prompt">[Claude's prompt will appear here — generated from structural processing of the full stop: its syntactic function as terminator, its rhythmic weight, its computational signature in language]</div>
-
                                 <div class="audio-placeholder">
-                                    <p>🔊 Audio player will appear here once the soundscape is generated</p>
+                                    🔊 Audio player will appear here once sonification is complete
                                 </div>
                             </div>
                         </div>
 
                         <div class="human-response">
                             <div class="human-response-header">
-                                <h4>Human Response to Claude's Processing</h4>
+                                <h4>Response to Machine Sound</h4>
                                 <span class="human-badge">Human</span>
                             </div>
                             <div class="human-response-body">
-                                <p class="response-placeholder">[Your reflection after hearing Claude's soundscape. Not: did it match what you expected? But: what does it reveal? What structural quality of the full stop did Claude's processing surface that your embodied response didn't — or couldn't? What does the gap between the two outputs tell you?]</p>
+                                <p>[Your reflection after hearing the sonification. What does the rhythm of the machine's full stops reveal? Where it places them, how often, what the pattern sounds like — does it feel like ending, or something else entirely?]</p>
                             </div>
                         </div>
 
-                        <button class="collapsible">Observations &amp; Evidence</button>
+                        <button class="collapsible">Observations</button>
                         <div class="collapsible-content">
                             <div class="analysis-grid">
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">Convergence</h5>
-                                    <p>[Where did your embodied response and Claude's machine processing produce similar qualities? What does this suggest survives the removal of the body — what is structural rather than felt?]</p>
+                                    <span class="analysis-title">Convergence</span>
+                                    <p>[Where did your embodied response and the machine's behaviour produce similar qualities?]</p>
                                 </div>
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">Divergence</h5>
-                                    <p>[Where did they differ fundamentally? What did Claude's processing produce that embodiment could never arrive at? What did your body know that the pattern couldn't find?]</p>
+                                    <span class="analysis-title">Divergence</span>
+                                    <p>[Where did they differ? What does the machine do with a full stop that a body never would?]</p>
                                 </div>
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">Surprise</h5>
-                                    <p>[What did Claude's output produce that was genuinely unexpected — not wrong, but arriving from a direction you hadn't anticipated? What does that reveal about machine processing of abstract marks?]</p>
+                                    <span class="analysis-title">What the Data Reveals</span>
+                                    <p>[What does the pattern of 3,373 full stops across a single conversation tell you about how the machine structures thought?]</p>
                                 </div>
                                 <div class="analysis-card">
-                                    <h5 class="analysis-title">The Encounter</h5>
-                                    <p>[What happened when the proximity sensor triggered the sound? What did the act of leaning in — of committing to the space of the mark — add to the experience of hearing the machine's response?]</p>
+                                    <span class="analysis-title">The Encounter</span>
+                                    <p>[What happened when the proximity sensor triggered the sound? What did leaning in add?]</p>
                                 </div>
                             </div>
                         </div>
 
-                        </div><!-- end punctuation-body-inner -->
                     </div>
                 </div>
 
                 <hr class="dotted-divider">
 
-                <!-- ELLIPSIS EXPLORATION -->
+                <!-- ELLIPSIS -->
                 <div id="ellipsis-exploration" class="punctuation-exploration">
                     <div class="punctuation-header">
-                        <div class="punctuation-symbol">...</div>
+                        <div class="punctuation-symbol" style="font-size:1.8em;">...</div>
                         <div class="punctuation-info">
-                            <h3 class="punctuation-name">The Ellipsis</h3>
-                            <p class="punctuation-trait">Trailing &amp; Suspending</p>
-                            <span class="punctuation-category">Suspensive Mark</span>
+                            <div class="punctuation-name">The Ellipsis</div>
+                            <p class="punctuation-trait">Suspensive Mark</p>
+                            <span class="punctuation-category">Rare in machine output — suspension without reluctance</span>
                         </div>
                     </div>
 
-                    <div class="punctuation-body">
-
-                        <div class="collage-display">
-                            <div class="collage-label">Physical Object</div>
-                            <div class="collage-placeholder">
-                                <div class="collage-placeholder-icon">···</div>
-                                <div class="collage-placeholder-text">Image of finished piece here</div>
-                            </div>
-                            <p class="collage-caption">[Caption describing the object]</p>
+                    <div class="collage-display">
+                        <span class="collage-label">Physical Object — Human Interpretation</span>
+                        <div class="collage-placeholder">
+                            <div class="collage-placeholder-icon">···</div>
+                            <div class="collage-placeholder-text">Image of finished piece here</div>
                         </div>
+                        <p class="collage-caption">[Caption describing the object]</p>
+                    </div>
 
-                        <div class="punctuation-body-inner">
+                    <div class="punctuation-body-inner">
 
                         <div class="human-input">
                             <div class="human-input-header">
@@ -1369,122 +1135,94 @@ Output the audio prompt only. Nothing else.</div>
                                 <span class="human-badge">Human</span>
                             </div>
                             <div class="human-input-body">
-                                <p class="response-placeholder">[Your reflection on the ellipsis. What does suspension feel like in the body? Where does incompleteness live — in the chest, the throat, the hands? What associations arise with the inability to finish?]</p>
+                                <p>[Your reflection on the ellipsis. What does suspension feel like in the body? Where does incompleteness live — in the chest, the throat, the hands?]</p>
                             </div>
-                        </div>
-
-                        <div class="palette-container">
-                            <div class="palette-item empty"><span class="color-swatch empty"></span><span>Color 1 #______</span></div>
-                            <div class="palette-item empty"><span class="color-swatch empty"></span><span>Color 2 #______</span></div>
-                            <div class="palette-item empty"><span class="color-swatch empty"></span><span>Color 3 #______</span></div>
-                        </div>
-
-                        <div class="constraint-box">
-                            <span class="constraint-label">Claude's Constraint:</span>
-                            <span class="constraint-text">"trail without resolution, preserve continuation"</span>
                         </div>
 
                         <div class="proximity-container">
                             <div class="proximity-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--mid)">
                                     <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
                                 </svg>
                             </div>
                             <div class="proximity-text">
-                                <p><strong>Proximity Trigger:</strong> The sensor activates Claude's sound when the viewer enters the object's space. For the ellipsis this creates an interesting problem — a mark defined by incompletion, triggered into sound by presence, potentially cut off by absence. Does the machine's suspension match the feeling of human hesitation, or does it produce something structurally different: not reluctance, but simply continuation without terminus?</p>
+                                <p><strong>Proximity trigger:</strong> A mark defined by incompletion, triggered by presence, cut off by absence. Does the machine's pattern of ellipses match the feeling of human hesitation — or does it produce something different: not reluctance, but simply continuation without terminus?</p>
                             </div>
                         </div>
 
                         <div class="ai-output">
                             <div class="ai-output-header">
-                                <h4>Claude's Machine Processing of an Ellipsis</h4>
-                                <span class="claude-badge">Claude + Stable Audio</span>
+                                <h4>Machine Behaviour — Ellipsis</h4>
+                                <span class="claude-badge">Data Sonification</span>
                             </div>
                             <div class="ai-output-body">
                                 <div class="session-metadata">
-                                    <div class="metadata-item"><span class="metadata-label">Generated:</span><span class="metadata-value">[Date]</span></div>
-                                    <div class="metadata-item"><span class="metadata-label">Prompt by:</span><span class="metadata-value">Claude</span></div>
-                                    <div class="metadata-item"><span class="metadata-label">Rendered by:</span><span class="metadata-value">Stable Audio 2.0</span></div>
-                                    <div class="metadata-item"><span class="metadata-label">Duration:</span><span class="metadata-value">[Duration], loop</span></div>
+                                    <div class="metadata-item"><span class="metadata-label">Mark:</span><span class="metadata-value">Ellipsis (...)</span></div>
+                                    <div class="metadata-item"><span class="metadata-label">Source:</span><span class="metadata-value">Claude's usage across one conversation</span></div>
+                                    <div class="metadata-item"><span class="metadata-label">Method:</span><span class="metadata-value">Positional data → sonification</span></div>
                                 </div>
-
-                                <span class="audio-prompt-label">Claude's Audio Prompt — generated independently from the mark itself:</span>
-                                <div class="audio-prompt">[Claude's prompt will appear here]</div>
-
                                 <div class="audio-placeholder">
-                                    <p>🔊 Audio player will appear here once the soundscape is generated</p>
+                                    🔊 Audio player will appear here once sonification is complete
                                 </div>
                             </div>
                         </div>
 
                         <div class="human-response">
                             <div class="human-response-header">
-                                <h4>Human Response to Claude's Processing</h4>
+                                <h4>Response to Machine Sound</h4>
                                 <span class="human-badge">Human</span>
                             </div>
                             <div class="human-response-body">
-                                <p class="response-placeholder">[Your reflection after hearing Claude's soundscape of the ellipsis. What did the machine's processing of suspension sound like — and how did it differ from what your body knows suspension to feel like?]</p>
+                                <p>[Your reflection after hearing the sonification.]</p>
                             </div>
                         </div>
 
-                        <button class="collapsible">Observations &amp; Evidence</button>
+                        <button class="collapsible">Observations</button>
                         <div class="collapsible-content">
                             <div class="analysis-grid">
-                                <div class="analysis-card"><h5 class="analysis-title">Convergence</h5><p>[Your observation]</p></div>
-                                <div class="analysis-card"><h5 class="analysis-title">Divergence</h5><p>[Your observation]</p></div>
-                                <div class="analysis-card"><h5 class="analysis-title">Surprise</h5><p>[Your observation]</p></div>
-                                <div class="analysis-card"><h5 class="analysis-title">The Encounter</h5><p>[Your observation]</p></div>
+                                <div class="analysis-card"><span class="analysis-title">Convergence</span><p>[Your observation]</p></div>
+                                <div class="analysis-card"><span class="analysis-title">Divergence</span><p>[Your observation]</p></div>
+                                <div class="analysis-card"><span class="analysis-title">What the Data Reveals</span><p>[Your observation]</p></div>
+                                <div class="analysis-card"><span class="analysis-title">The Encounter</span><p>[Your observation]</p></div>
                             </div>
                         </div>
 
-                        </div><!-- end punctuation-body-inner -->
                     </div>
                 </div>
 
                 <hr class="dotted-divider">
 
-                <!-- PLACEHOLDER EXPLORATIONS -->
-                <div id="comma-exploration" class="section-content">
-                    <h3 class="section-title">, Comma — Coming Soon</h3>
-                    <div class="introduction">
-                        <p>The comma exploration is in progress. The connective, breathing mark — where someone paused, where the sentence kept going. What does Claude's processing of continuation sound like?</p>
-                    </div>
+                <!-- REMAINING MARKS — COMING SOON -->
+                <div id="comma-exploration" class="coming-soon">
+                    <h3>, Comma — In Progress</h3>
+                    <p>3,787 events. The connective, breathing mark. Dense in the machine's output — it connects rather than ends. What does that continuous connecting sound like as a rhythm?</p>
                 </div>
 
-                <div id="question-exploration" class="section-content">
-                    <h3 class="section-title">? Question Mark — Coming Soon</h3>
-                    <div class="introduction">
-                        <p>The question mark exploration is in progress. The mark that performs seeking — not a word meaning "I don't know" but the structural enactment of not knowing. What does a machine make of a mark whose function is to remain open?</p>
-                    </div>
+                <div id="colon-exploration" class="coming-soon">
+                    <h3>: Colon — In Progress</h3>
+                    <p>9,727 events — the machine's most used mark by far. It lists, announces, introduces. This density is the machine's signature: structural organisation through the colon. What does that dominance sound like?</p>
                 </div>
 
-                <div id="exclamation-exploration" class="section-content">
-                    <h3 class="section-title">! Exclamation — Coming Soon</h3>
-                    <div class="introduction">
-                        <p>The exclamation exploration is in progress. Force without duration. The mark that terminates at maximum intensity. Does Claude's processing recognise the difference between a full stop and this?</p>
-                    </div>
+                <div id="semicolon-exploration" class="coming-soon">
+                    <h3>; Semicolon — In Progress</h3>
+                    <p>6,021 events. The machine bridges constantly — holds two things in relation without collapsing them. More semicolons than full stops. It resists ending.</p>
                 </div>
 
-                <div id="semicolon-exploration" class="section-content">
-                    <h3 class="section-title">; Semicolon — Coming Soon</h3>
-                    <div class="introduction">
-                        <p>The semicolon exploration is in progress. The mark that holds two things in relation without collapsing them into one. A decision not to end. What does the pattern of bridge-without-merger sound like?</p>
-                    </div>
+                <div id="question-exploration" class="coming-soon">
+                    <h3>? Question Mark — In Progress</h3>
+                    <p>275 events. Rare. The machine asks relatively little. What does its pattern of questioning look like distributed across a day?</p>
                 </div>
 
-                <div id="colon-exploration" class="section-content">
-                    <h3 class="section-title">: Colon — Coming Soon</h3>
-                    <div class="introduction">
-                        <p>The colon exploration is in progress. The mark of announcement — what follows has been prepared for. A held breath before delivery. How does a machine process the structure of anticipation?</p>
-                    </div>
+                <div id="exclamation-exploration" class="coming-soon">
+                    <h3>! Exclamation — In Progress</h3>
+                    <p>28 events across an entire day. Almost silent. The machine almost never exclaims. What does a piece made from 28 sound events sound like — and what does that near-silence reveal?</p>
                 </div>
 
-                <div id="dash-exploration" class="section-content">
-                    <h3 class="section-title">— Em Dash — Coming Soon</h3>
-                    <div class="introduction">
-                        <p>The em dash exploration is in progress. Rupture mid-sentence. The mark where the thought changed direction — or was interrupted — or couldn't wait. What does Claude's processing of sudden break sound like?</p>
-                    </div>
+                <div id="dash-exploration" class="coming-soon">
+                    <h3>— Em Dash — In Progress</h3>
+                    <p>Rupture mid-sentence. The mark where the thought changed direction. How does the machine use interruption?</p>
                 </div>
+
             </section>
 
             <hr class="dotted-divider">
@@ -1495,51 +1233,32 @@ Output the audio prompt only. Nothing else.</div>
                     <h2 class="section-title">Emerging Findings</h2>
 
                     <div class="introduction">
-                        <p>This section documents patterns and insights as they emerge across the explorations. The primary research output is not the individual objects or soundscapes but what accumulates in the comparison — evidence about what each mode of processing reveals and conceals about the same abstract marks.</p>
+                        <p>The primary research output is not the individual objects or sound pieces but what accumulates in the comparison — evidence about what each mode of processing reveals and conceals about the same abstract marks.</p>
                     </div>
 
                     <div class="findings-box">
-                        <h4>On Structural Qualities</h4>
-                        <p>[As explorations complete, document what you learn about the marks themselves — qualities that appear in both human and machine processing simultaneously. These convergences point toward something structural about the mark that transcends the processing mode: something in the full stop that produces closure-effects regardless of whether a body or a pattern-system encounters it.]</p>
+                        <h4>The Machine's Signature</h4>
+                        <p>The data already reveals something before any sound is made. The colon dominates — 9,727 uses. The machine structures information relentlessly, introduces and announces and lists. The semicolon outnumbers the full stop — it bridges more than it ends. The exclamation is almost absent. This is the machine's character expressed through punctuation alone, without a word of content.</p>
+                    </div>
+
+                    <div class="findings-box">
+                        <h4>On the Entanglement</h4>
+                        <p>The original methodology — asking Claude to interpret each mark through a structured prompt — was abandoned. Claude cannot escape human language when describing anything, including itself. The prompt produces performed interpretation, not machine processing. The data approach sidesteps this: instead of asking what the machine thinks, it records what the machine does. The unconscious usage is the most honest signature available.</p>
                     </div>
 
                     <div class="findings-box">
                         <h4>On the Gap</h4>
-                        <p>[Track the divergences as carefully as the convergences. Where Claude's processing produces something the body would never arrive at — or where embodied response surfaces something pattern-processing cannot find — these are the most revealing moments. Not failures of translation, but genuine differences made audible.]</p>
-                    </div>
-
-                    <div class="findings-box">
-                        <h4>On the Encounter</h4>
-                        <p>[Document what the proximity trigger adds. The physical act of leaning into the object's space — of committing to the encounter before the sound begins — is itself part of the work. What does it mean to have to choose to enter the space of a machine's processing?]</p>
-                    </div>
-
-                    <div class="insight-grid">
-                        <div class="insight-card">
-                            <h5 class="insight-title">Two Chains, One Subject</h5>
-                            <p>The physical object and the soundscape are not in dialogue. They are two independent interpretations of the same mark — one from the body, one from pattern. What they share reveals something about the mark. What they don't share reveals something about each kind of processing.</p>
-                        </div>
-                        <div class="insight-card">
-                            <h5 class="insight-title">The Prompt as Evidence</h5>
-                            <p>Claude's audio prompt is itself data — a document of machine processing. Not instructions for the AI but a record of what the pattern-system arrives at when it encounters a mark without a body. Reading the prompt is part of the work.</p>
-                        </div>
-                        <div class="insight-card">
-                            <h5 class="insight-title">What the Body Knows</h5>
-                            <p>The collages emerge from bodily sensation — from how a full stop feels when you write one. That knowledge is not available to Claude. The question is whether its absence changes what the mark produces, or only how it is arrived at.</p>
-                        </div>
-                        <div class="insight-card">
-                            <h5 class="insight-title">What Pattern Finds</h5>
-                            <p>Claude's processing may surface structural qualities of marks that embodied response obscures — qualities visible only at scale, only through statistical encounter with millions of instances. What does a full stop look like when you've processed a billion of them?</p>
-                        </div>
+                        <p>[As explorations complete, document where human and machine responses converge and diverge. The convergences point toward something structural about the mark that transcends the processing mode. The divergences reveal what embodiment adds — or what statistical pattern at scale produces that the body could never arrive at.]</p>
                     </div>
 
                     <div class="quote">
-                        "The question isn't whether machines feel what we feel. The question is what their processing reveals about the marks we use to carry feeling — whether the structure of a punctuation mark is legible to a system that has never had a body, and what that legibility, or its absence, tells us about language itself."
+                        Punctuation is the silent architecture of language. The murmur of the machine. Perhaps punctuation holds the mathematical composition of language for the machine — the structure beneath the meaning, the thing that remains when the content is stripped away. Do the sounds in these machinic pauses and stops reveal not our voice but that of the machine.
                     </div>
                 </div>
             </section>
+
         </main>
 
-        <!-- FOOTER -->
         <footer>
             <div class="footer-nav">
                 <a href="#introduction">Introduction</a>
@@ -1550,9 +1269,9 @@ Output the audio prompt only. Nothing else.</div>
                 <a href="#findings">Findings</a>
             </div>
             <p><strong>The Secret Lives of Punctuation</strong></p>
-            <p>The same mark. Two interpretations. One from the body. One from pattern.</p>
-            <p>Physical Objects &amp; Collage: Human | Audio Prompts: Claude | Soundscapes: Stable Audio | Trigger: Proximity Sensor</p>
-            <p>© 2025</p>
+            <p>Physical Objects: Human | Sound: Machine behaviour data → sonification | Trigger: Proximity sensor</p>
+            <p>Data source: 23,211 punctuation events from Claude's responses across one conversation, 29 May 2026</p>
+            <p>© 2025 Heidi Stokes</p>
         </footer>
 
     </div>
