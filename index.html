@@ -132,6 +132,24 @@
         .footer-nav a { padding: 4px 10px; background: none; color: var(--mid); text-decoration: none; border: 1px solid var(--warm-border); border-radius: 2px; font-family: 'Space Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.2s; }
         .footer-nav a:hover { border-color: var(--ink); color: var(--ink); text-decoration: none; }
         footer p { margin: 0 0 4px 0; font-size: 0.68rem; color: var(--mid); font-family: 'Space Mono', monospace; }
+        details.reflection-toggle { border: 1px solid var(--warm-border); border-radius: 3px; margin: 12px 0; background: white; overflow: hidden; }
+        details.reflection-toggle > summary { background: var(--ink); color: var(--paper); padding: 10px 16px; cursor: pointer; list-style: none; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        details.reflection-toggle > summary::-webkit-details-marker { display: none; }
+        details.reflection-toggle > summary::after { content: '+'; font-family: 'DM Serif Display', serif; font-size: 1.2em; transition: transform 0.2s; }
+        details.reflection-toggle[open] > summary::after { transform: rotate(45deg); }
+        details.reflection-toggle > summary:hover { background: #333; }
+        details.reflection-toggle .reflection-content { padding: 14px 16px; }
+        details.reflection-toggle .reflection-content p { margin: 0 0 8px 0; font-style: italic; font-size: 0.82rem; color: var(--mid); }
+        details.reflection-toggle .reflection-content p:last-child { margin-bottom: 0; }
+        details.findings-toggle { background: white; border: 1px solid var(--warm-border); border-radius: 3px; margin: 14px 0; overflow: hidden; }
+        details.findings-toggle > summary { padding: 12px 16px; cursor: pointer; list-style: none; font-family: 'Space Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--ink); display: flex; justify-content: space-between; align-items: center; }
+        details.findings-toggle > summary::-webkit-details-marker { display: none; }
+        details.findings-toggle > summary::after { content: '+'; font-family: 'DM Serif Display', serif; font-size: 1.2em; transition: transform 0.2s; color: var(--mid); }
+        details.findings-toggle[open] > summary::after { transform: rotate(45deg); }
+        details.findings-toggle[open] > summary { border-bottom: 1px solid var(--warm-border); }
+        details.findings-toggle .findings-content { padding: 14px 16px; }
+        details.findings-toggle .findings-content p { margin: 0 0 8px 0; font-size: 0.85rem; }
+        details.findings-toggle .findings-content p:last-child { margin-bottom: 0; }
         @media (max-width: 768px) { body { padding: 12px; } .page-wrapper, .page-container { padding: 12px; width: 95%; } h1 { font-size: 1.6rem; } .nav-button { font-size: 0.58rem; padding: 4px 8px; } .collapsible { font-size: 0.65rem; } }
         @media (max-width: 480px) { body { padding: 8px; } .page-wrapper, .page-container { padding: 10px; } h1 { font-size: 1.3rem; } .data-grid { grid-template-columns: repeat(4, 1fr); } }
     </style>
@@ -318,7 +336,7 @@
         </div>
         <div class="human-response">
             <div class="human-response-header"><h4>Response to Machine Sound</h4><span class="human-badge">Human</span></div>
-            <div class="human-response-body"><p>My interpretation radiates outward — force, impact, the full stop as the moment of striking. The machine's sound is something else entirely. A continuous low, almost monastic tone. It suffers and continues. There is no finality in it — only recurrence, endurance, the same mark placed again and again across a day without drama. The mark I interpreted as termination, the machine uses as a kind of persistence.</p></div>
+            <div class="human-response-body"><p>My interpretation radiates outward — force, impact, the full stop as the moment of striking. When I listened to the sonification I heard something else. A continuous low, almost monastic tone. I heard no finality in it — only recurrence, the same mark placed again and again across a day. The mark I interpreted as termination, I heard as a kind of persistence.</p></div>
         </div>
         <button class="collapsible">Observations</button>
         <div class="collapsible-content">
@@ -374,7 +392,7 @@
         </div>
         <div class="human-response">
             <div class="human-response-header"><h4>Response to Machine Sound</h4><span class="human-badge">Human</span></div>
-            <div class="human-response-body"><p>A blip that comes and goes. Like the noise a person makes with their lips when fatigued — a small breath, barely formed. 38 events scattered across the day. The machine trails off rarely, and when it does, lightly. There is no weight to it, no suspension held. Just a small exhale and then continuation.</p></div>
+            <div class="human-response-body"><p>I heard a blip that comes and goes. Like the noise a person makes with their lips when fatigued — a small breath, barely formed. 38 events scattered across the day. I heard no weight to it, no suspension held. Just a small exhale, to me, and then continuation.</p></div>
         </div>
         <button class="collapsible">Observations</button>
         <div class="collapsible-content">
@@ -427,7 +445,7 @@
         </div>
         <div class="human-response">
             <div class="human-response-header"><h4>Response to Machine Sound</h4><span class="human-badge">Human</span></div>
-            <div class="human-response-body"><p>A radio signal. Trying to generate a transmission call, but never quite getting there. 3,787 commas across one day, more than any other connective mark — and the sound is exactly that kind of attempt: reaching toward contact, toward connection, but never resolving into a clear signal. The comma holds two things in relation without closing the loop, and the sound does the same — always transmitting, never quite arriving.</p></div>
+            <div class="human-response-body"><p>I heard a radio signal. Something trying to generate a transmission call, but never quite getting there. 3,787 commas across one day — and what I heard was exactly that kind of attempt: reaching toward contact, toward connection, but never resolving into a clear signal for me. Always transmitting, never quite arriving.</p></div>
         </div>
         <button class="collapsible">Observations</button>
         <div class="collapsible-content">
@@ -483,7 +501,7 @@
         </div>
         <div class="human-response">
             <div class="human-response-header"><h4>Response to Machine Sound</h4><span class="human-badge">Human</span></div>
-            <div class="human-response-body"><p>A navigation system. A radar searching. Constant, systematic, sweeping. Not feeling anything — scanning. The colon is the machine's primary tool for structuring space, always pointing forward to what comes next, always announcing, always organising the territory ahead. At 9,727 uses it becomes relentless. The most machinic sound of all six.</p></div>
+            <div class="human-response-body"><p>I heard a navigation system. A radar searching. Constant, systematic, sweeping. At 9,727 events, what I heard was relentless — to me, the most machinic sound of all six.</p></div>
         </div>
         <button class="collapsible">Observations</button>
         <div class="collapsible-content">
@@ -595,7 +613,7 @@
         </div>
         <div class="human-response">
             <div class="human-response-header"><h4>Response to Machine Sound</h4><span class="human-badge">Human</span></div>
-            <div class="human-response-body"><p>Underwater. Submerged at the bottom of the sea. It flickers and is far away. The machine questions rarely and, when it does, from a great depth — not the sharp upward reach of a human question toward another person, but something buried, suppressed, barely surfacing. Questioning is not native to the machine. It does it from distance, with effort, flickering rather than burning.</p></div>
+            <div class="human-response-body"><p>I heard something underwater. Submerged at the bottom of the sea. It flickered and was far away. 275 events across an entire day — and what I heard was not the sharp upward reach of a human question toward another person, but something buried, suppressed, barely surfacing to me. From distance, with effort, flickering rather than burning.</p></div>
         </div>
         <button class="collapsible">Observations</button>
         <div class="collapsible-content">
@@ -707,7 +725,7 @@
         </div>
         <div class="human-response">
             <div class="human-response-header"><h4>Response to Machine Sound</h4><span class="human-badge">Human</span></div>
-            <div class="human-response-body"><p>Hardly present — and then suddenly there, concentrated toward the end. The machine doesn't meander. It is direct, conclusive, gets to the point. The em dash appears when a thought redirects — but rarely, and late. Most of the conversation has already been structured, announced, completed before the interruption arrives. When it does come it feels like a late realisation rather than an impulsive one.</p></div>
+            <div class="human-response-body"><p>Hardly present — and then suddenly there, concentrated toward the end. I heard no meandering. To me it sounded direct, gets to the point. The em dash appeared when a thought redirected — but rarely, and late. When it did come I heard it as a late realisation rather than an impulsive one.</p></div>
         </div>
         <button class="collapsible">Observations</button>
         <div class="collapsible-content">
@@ -727,31 +745,26 @@
 <!-- FINDINGS -->
 <section id="findings">
     <div class="section-content">
-        <h2 class="section-title">Emerging Findings</h2>
-        <div class="introduction"><p>The primary research output is not the individual objects or sound pieces but what accumulates in the comparison — evidence about what each mode of processing reveals and conceals about the same abstract marks.</p></div>
+        <h2 class="section-title">Listening Notes</h2>
+        <div class="introduction"><p>What follows is a record of my listening — one human, on specific dates, responding to the sonifications. These are not findings about the machine. They are what I heard.</p></div>
         <div class="findings-box">
-            <h4>The Machine's Signature</h4>
-            <p>The data already reveals something before any sound is made. The colon dominates — 9,727 uses. The machine structures information relentlessly, introduces and announces and lists. The semicolon outnumbers the full stop — it bridges more than it ends. The exclamation is almost absent. This is the machine's character expressed through punctuation alone, without a word of content.</p>
+            <h4>What the Data Shows</h4>
+            <p>Before any sound: the colon occurred 9,727 times across one conversation. The semicolon, 6,021. The full stop, 3,373. The comma, 3,787. The em dash, 139. The question mark, 275. The ellipsis, 38. The exclamation, 28. The distribution is the data. The reading of it is left open.</p>
         </div>
         <div class="findings-box">
-            <h4>On the Entanglement</h4>
-            <p>The original methodology — asking Claude to interpret each mark through a structured prompt — was abandoned. Claude cannot escape human language when describing anything, including itself. The prompt produces performed interpretation, not machine processing. The data approach sidesteps this: instead of asking what the machine thinks, it records what the machine does. The unconscious usage is the most honest signature available.</p>
-        </div>
-        <div class="findings-box">
-            <h4>On the Gap</h4>
-            <p>The sounds are all different — and all surprising. The full stop: haunting, monastic, continuous — the terminal mark that never terminates. The colon: a radar, a navigation system, relentless scanning. The question mark: submerged, flickering, far away — questioning from a depth that barely surfaces. The exclamation: a woodpecker, mechanical, 28 taps with no emotional weight.</p>
-            <p>What emerges across all four is that the machine's marks do not behave as the marks mean. The full stop endures rather than ends. The exclamation feels nothing. The question mark is buried rather than reaching. The colon dominates where a human would pause. The machine has a character — revealed not in its words but in the rhythm and character of its pauses.</p>
+            <h4>On the Methodology</h4>
+            <p>An earlier approach asked Claude to interpret each mark through a structured prompt. That approach was abandoned. The prompt produces language about the marks. The count records the marks themselves. The shift is from asking what Claude says to recording what Claude does.</p>
         </div>
         <div class="findings-box">
             <h4>First Listening — 3 June 2026</h4>
-            <p><strong>Full Stop:</strong> Haunting. A continuous low, almost monastic sound that suffers and continues. My interpretation radiates. The machine endures.</p>
-            <p><strong>Colon:</strong> A navigation system. A radar searching. Constant, systematic, covering space. Not feeling — scanning.</p>
-            <p><strong>Question Mark:</strong> Underwater. Submerged at the bottom of the sea. It flickers and is far away.</p>
-            <p><strong>Exclamation:</strong> A woodpecker. No emotional weight. Sudden, sharp, functional. The mark that means most to humans sounds like a tool to the machine.</p>
-            <p><strong>Ellipsis:</strong> A blip that comes and goes. Like the noise a person makes with their lips when fatigued — a small breath, barely formed. 38 events. The machine trails off rarely and lightly.</p>
-            <p><strong>Em Dash:</strong> Hardly present, then suddenly concentrated toward the end. The machine is direct and conclusive. It doesn't meander. When the interruption finally comes it feels like late realisation, not impulsive rupture.</p>
+            <p><strong>Full Stop:</strong> I heard a continuous low, almost monastic sound. My interpretation of the mark had radiated outward. What I heard did not.</p>
+            <p><strong>Colon:</strong> I heard a navigation system. A radar searching. Constant, systematic, covering space.</p>
+            <p><strong>Question Mark:</strong> I heard something underwater. Submerged at the bottom of the sea. It flickered and was far away.</p>
+            <p><strong>Exclamation:</strong> I heard a woodpecker. Sudden, sharp, functional. To me it had no emotional weight.</p>
+            <p><strong>Ellipsis:</strong> I heard a blip that comes and goes. Like the noise a person makes with their lips when fatigued — a small breath, barely formed.</p>
+            <p><strong>Em Dash:</strong> Hardly present, then suddenly concentrated toward the end. I heard no meandering. When the interruption came I heard it as late realisation.</p>
         </div>
-        <div class="quote">Punctuation is the silent architecture of language. The murmur of the machine. Perhaps punctuation holds the mathematical composition of language for the machine — the structure beneath the meaning, the thing that remains when the content is stripped away. Do the sounds in these machinic pauses and stops reveal not our voice but that of the machine.</div>
+        <div class="quote">A question I am holding rather than answering: what, if anything, do the sounds in these pauses and stops reveal — and to whom does what they reveal belong, the listener or the mark.</div>
     </div>
 </section>
 
@@ -801,6 +814,49 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
+        });
+
+        // Wrap text-heavy reflection blocks in collapsibles to reduce visual density
+        function wrapInDetails(element, summaryText) {
+            if (!element || !element.parentNode) return;
+            const details = document.createElement('details');
+            details.className = 'reflection-toggle';
+            const summary = document.createElement('summary');
+            summary.textContent = summaryText;
+            const wrapper = document.createElement('div');
+            wrapper.className = 'reflection-content';
+            element.parentNode.insertBefore(details, element);
+            details.appendChild(summary);
+            details.appendChild(wrapper);
+            wrapper.appendChild(element);
+        }
+
+        document.querySelectorAll('.punctuation-exploration').forEach(block => {
+            const embodied = block.querySelector('.human-input');
+            const proximity = block.querySelector('.proximity-container');
+            const response = block.querySelector('.human-response');
+            if (embodied) wrapInDetails(embodied, 'Embodied reflection — read');
+            if (proximity) wrapInDetails(proximity, 'Proximity trigger — read');
+            if (response) wrapInDetails(response, 'Response to machine sound — read');
+        });
+
+        // Wrap findings boxes in collapsibles
+        document.querySelectorAll('.findings-box').forEach(box => {
+            const heading = box.querySelector('h4');
+            if (!heading) return;
+            const title = heading.textContent;
+            heading.remove();
+            const details = document.createElement('details');
+            details.className = 'findings-toggle';
+            const summary = document.createElement('summary');
+            summary.textContent = title;
+            const wrapper = document.createElement('div');
+            wrapper.className = 'findings-content';
+            box.parentNode.insertBefore(details, box);
+            details.appendChild(summary);
+            details.appendChild(wrapper);
+            while (box.firstChild) wrapper.appendChild(box.firstChild);
+            box.remove();
         });
     });
 </script>
