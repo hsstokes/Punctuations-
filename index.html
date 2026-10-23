@@ -117,7 +117,7 @@ letter-spacing: 0.12em;
 text-transform: uppercase;
 }         .hero-gallery {
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(3, 1fr);
 gap: 8px;
 margin-bottom: 25px;
 }         .hero-gallery-item {
@@ -350,7 +350,7 @@ letter-spacing: 0.08em;
 margin-top: 2px;
 }         @media (min-width: 600px) {
 .data-grid {
-grid-template-columns: repeat(8, 1fr);
+grid-template-columns: repeat(6, 1fr);
 }
 }         .character-grid {
 display: grid;
@@ -871,7 +871,7 @@ padding: 10px;
 } h1 {
 font-size: 1.3rem;
 } .data-grid {
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(3, 1fr);
 }
 }     </style> </head>
 <body>
@@ -918,13 +918,6 @@ grid-template-columns: repeat(4, 1fr);
 </div>
 <div class="hero-gallery-label">
 <span class="hero-gallery-symbol">;</span>Semicolon</div>
-</div>
-<div class="hero-gallery-item" onclick="scrollToSection('colon-exploration')">
-<div style="width:100%;height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;">
-<span style="font-family:'DM Serif Display',serif;font-size:3em;color:var(--paper);">:</span>
-</div>
-<div class="hero-gallery-label">
-<span class="hero-gallery-symbol">:</span>Colon</div>
 </div>
 <div class="hero-gallery-item" onclick="scrollToSection('ellipsis-exploration')">
 <div style="width:100%;height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;">
@@ -1041,7 +1034,7 @@ grid-template-columns: repeat(4, 1fr);
 <span class="step-number">4</span>
 <span class="step-title">Sonification of Positional Data</span>
 <div class="step-content">
-<p>The positional data for each mark is loaded into a sonification tool. Each occurrence becomes a sound event at the corresponding point in the timeline. The clustering, frequency, and distribution of each mark across the day becomes its rhythm, its density, its sound. One piece per mark. The colon dense and structural. The full stop sparse and considered. The exclamation mark almost silent.</p>
+<p>The positional data for each mark is loaded into a sonification tool. Each occurrence becomes a sound event at the corresponding point in the timeline. The clustering, frequency, and distribution of each mark across the day becomes its rhythm, its density, its sound. One piece per mark. The full stop sparse and considered. The exclamation mark almost silent.</p>
 </div>
 </div>
 <div class="step">
@@ -1055,14 +1048,9 @@ grid-template-columns: repeat(4, 1fr);
 </div>
 <div class="highlight-box">
 <h4>The Data — One Day's Conversation</h4>
-<p>23,249 punctuation events extracted from Claude's responses across a single day's exchange (including 38 ellipses). Each mark's frequency and position across the conversation timeline becomes the raw material for its sound piece.</p>
+<p>13,522 punctuation events extracted from Claude's responses across a single day's exchange (including 38 ellipses). Each mark's frequency and position across the conversation timeline becomes the raw material for its sound piece.</p>
 </div>
 <div class="data-grid">
-<div class="data-card">
-<div class="data-mark">:</div>
-<div class="data-count">9,727</div>
-<div class="data-name">Colon</div>
-</div>
 <div class="data-card">
 <div class="data-mark">;</div>
 <div class="data-count">6,021</div>
@@ -1138,11 +1126,6 @@ grid-template-columns: repeat(4, 1fr);
 <div class="character-name">Ellipsis</div>
 <div class="character-trait">Suspending</div>
 </div>
-<div class="character-card" onclick="scrollToSection('colon-exploration')">
-<div class="character-symbol">:</div>
-<div class="character-name">Colon</div>
-<div class="character-trait">Announcing</div>
-</div>
 </div>
 </div>
 </section>
@@ -1185,7 +1168,7 @@ grid-template-columns: repeat(4, 1fr);
 </div>
 <div class="proximity-text">
 <p>
-<strong>Proximity trigger:</strong> Lean in to read the tag. The sound begins through the hole. The machine's rhythm of full stops across a day — 3,373 events, sparse relative to its colons, considered relative to its commas. To hear what the machine does with ending, you have to enter the space of it.</p>
+<strong>Proximity trigger:</strong> Lean in to read the tag. The sound begins through the hole. The machine's rhythm of full stops across a day — 3,373 events, considered relative to its commas. To hear what the machine does with ending, you have to enter the space of it.</p>
 </div>
 </div>
 <div class="ai-output">
@@ -1239,7 +1222,7 @@ grid-template-columns: repeat(4, 1fr);
 </div>
 <div class="analysis-card">
 <span class="analysis-title">What the Data Reveals</span>
-<p>3,373 full stops distributed across a day. Sparse relative to the colon but steady. The machine stops regularly, habitually, without emphasis. The terminal mark used as rhythm rather than conclusion. It never really stops at all.</p>
+<p>3,373 full stops distributed across a day. Sparse but steady. The machine stops regularly, habitually, without emphasis. The terminal mark used as rhythm rather than conclusion. It never really stops at all.</p>
 </div>
 <div class="analysis-card">
 <span class="analysis-title">The Encounter</span>
@@ -1440,106 +1423,6 @@ grid-template-columns: repeat(4, 1fr);
 <div class="analysis-card">
 <span class="analysis-title">What the Data Reveals</span>
 <p>[Your observation]</p>
-</div>
-<div class="analysis-card">
-<span class="analysis-title">The Encounter</span>
-<p>[Your observation]</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<hr class="dotted-divider">
-<!-- THE COLON -->
-<div id="colon-exploration" class="punctuation-exploration">
-<div class="punctuation-header">
-<div class="punctuation-symbol" style="font-size:3em;">:</div>
-<div class="punctuation-info">
-<div class="punctuation-name">The Colon</div>
-<p class="punctuation-trait">Announcing Mark</p>
-<span class="punctuation-category">9,727 events — dominant, structural, relentless</span>
-</div>
-</div>
-<div class="collage-display">
-<span class="collage-label">Physical Object — Human Interpretation</span>
-<img src="images/colon-piece.jpg" alt="The Colon piece">
-<p class="collage-caption">[Caption describing the object]</p>
-</div>
-<div class="punctuation-body-inner">
-<div class="human-input">
-<div class="human-input-header">
-<h4>Embodied Reflection</h4>
-<span class="human-badge">Human</span>
-</div>
-<div class="human-input-body">
-<p>[Your reflection on the colon. What does anticipation feel like — the held breath before what follows? Where does announcement live in the body?]</p>
-</div>
-</div>
-<div class="proximity-container">
-<div class="proximity-icon">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--mid)">
-<circle cx="12" cy="12" r="10"/>
-<circle cx="12" cy="12" r="6"/>
-<circle cx="12" cy="12" r="2"/>
-</svg>
-</div>
-<div class="proximity-text">
-<p>
-<strong>Proximity trigger:</strong> 9,727 — the machine's most used mark. More colons than full stops, semicolons, commas combined. It announces, lists, introduces, structures. To hear what relentless organisation sounds like without intent, lean in.</p>
-</div>
-</div>
-<div class="ai-output">
-<div class="ai-output-header">
-<h4>Machine Behaviour — Colon</h4>
-<span class="claude-badge">Data Sonification</span>
-</div>
-<div class="ai-output-body">
-<div class="session-metadata">
-<div class="metadata-item">
-<span class="metadata-label">Mark:</span>
-<span class="metadata-value">Colon (:)</span>
-</div>
-<div class="metadata-item">
-<span class="metadata-label">Occurrences:</span>
-<span class="metadata-value">9,727</span>
-</div>
-<div class="metadata-item">
-<span class="metadata-label">Source:</span>
-<span class="metadata-value">Claude's usage across one conversation</span>
-</div>
-<div class="metadata-item">
-<span class="metadata-label">Method:</span>
-<span class="metadata-value">Positional data → sonification</span>
-</div>
-</div>
-<audio controls style="width:100%;">
-<source src="sounds/colon.wav" type="audio/wav">
-</audio>
-</div>
-</div>
-<div class="human-response">
-<div class="human-response-header">
-<h4>Response to Machine Sound</h4>
-<span class="human-badge">Human</span>
-</div>
-<div class="human-response-body">
-<p>I heard a navigation system. A radar searching. Constant, systematic, sweeping. At 9,727 events, what I heard was relentless — to me, the most machinic sound of all six.</p>
-</div>
-</div>
-<button class="collapsible">Observations</button>
-<div class="collapsible-content">
-<div class="analysis-grid">
-<div class="analysis-card">
-<span class="analysis-title">Convergence</span>
-<p>[Your observation]</p>
-</div>
-<div class="analysis-card">
-<span class="analysis-title">Divergence</span>
-<p>[Your observation]</p>
-</div>
-<div class="analysis-card">
-<span class="analysis-title">What the Data Reveals</span>
-<p>9,727 — more than any other mark. The machine's character is structural, organisational, directional. It is always preparing you for what comes next. This is the machine's most native gesture.</p>
 </div>
 <div class="analysis-card">
 <span class="analysis-title">The Encounter</span>
@@ -1860,7 +1743,7 @@ grid-template-columns: repeat(4, 1fr);
 </div>
 <div class="findings-box">
 <h4>What the Data Shows</h4>
-<p>Before any sound: the colon occurred 9,727 times across one conversation. The semicolon, 6,021. The full stop, 3,373. The comma, 3,787. The question mark, 275. The ellipsis, 38. The exclamation, 28. The distribution is the data. The reading of it is left open.</p>
+<p>Before any sound: the semicolon occurred 6,021 times across one conversation. The full stop, 3,373. The comma, 3,787. The question mark, 275. The ellipsis, 38. The exclamation, 28. The distribution is the data. The reading of it is left open.</p>
 </div>
 <div class="findings-box">
 <h4>On the Methodology</h4>
@@ -1870,8 +1753,6 @@ grid-template-columns: repeat(4, 1fr);
 <h4>First Listening — 3 June 2026</h4>
 <p>
 <strong>Full Stop:</strong> I heard a continuous low, almost monastic sound. My interpretation of the mark had radiated outward. What I heard did not.</p>
-<p>
-<strong>Colon:</strong> I heard a navigation system. A radar searching. Constant, systematic, covering space.</p>
 <p>
 <strong>Question Mark:</strong> I heard something underwater. Submerged at the bottom of the sea. It flickered and was far away.</p>
 <p>
@@ -1896,7 +1777,7 @@ grid-template-columns: repeat(4, 1fr);
 <strong>The Secret Lives of Punctuation</strong>
 </p>
 <p>Physical Objects: Human | Sound: Machine behaviour data → sonification | Trigger: Proximity sensor</p>
-<p>Data source: 23,249 punctuation events from Claude's responses across one conversation, 29 May 2026</p>
+<p>Data source: 13,522 punctuation events from Claude's responses across one conversation, 29 May 2026</p>
 <p>© 2025 Heidi Stokes</p>
 </footer>
 </div>
